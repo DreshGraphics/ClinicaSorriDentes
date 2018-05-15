@@ -1,7 +1,7 @@
 <?php
 
 include_once '../util/daoGenerico.php';
-include_once '../BancoDeDados/Conexao_Banco_ClinicaTorres.php.inc';
+include_once '../BancoDeDados/Conexao_Banco_ClinicaSorridentes.php.inc';
 
 class ValidarLogin extends ConexaoDB {
     
