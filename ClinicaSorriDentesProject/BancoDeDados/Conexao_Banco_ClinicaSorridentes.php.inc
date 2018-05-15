@@ -5,7 +5,7 @@ abstract class ConexaoDB {
     public $servidor = "localhost";
     public $usuario = "root";
     public $senha = "";
-    public $nomeBanco = "clinica_candido_torres_database";
+    public $nomeBanco = "clinica_sorridentes_database";
     public $conexao = null;
     public $dataset = null;
     public $linhaAfetada = -1 ;

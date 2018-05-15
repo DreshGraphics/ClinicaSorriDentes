@@ -1,6 +1,6 @@
 <?php
 
-require_once '../BancoDeDados/Conexao_Banco_ClinicaTorres.php.inc';
+require_once '../BancoDeDados/Conexao_Banco_ClinicaSorridentes.php.inc';
 
 class daoGenerico extends ConexaoDB {
     
