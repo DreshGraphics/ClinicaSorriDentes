@@ -36,7 +36,6 @@ $dado = $usuario->retornaDados("object");
     <title>Atualizar Usuário</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat+Alternates">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
     <link rel="stylesheet" type="text/css" href="../css/cadastro.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">

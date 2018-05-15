@@ -14,7 +14,7 @@ if(isset($_SESSION["tipoUsuario"])){
 <head>
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Clinica Cândido Torres</title>
+	<title>Clinica Sorridentes</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat+Alternates">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
