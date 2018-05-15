@@ -63,6 +63,7 @@ $dado = $usuario->retornaDados("object");
     <header id="topo">
     <input type="checkbox" id="bt_menu">
     <label for="bt_menu">&#9776;</label>
+    <div id="right"><img src="../img/cct.png"></div>
     <nav class="menu" id="menu">
         <ul>
             <li><a href="../Telas/Home.php">Inicio</a></li>

@@ -19,7 +19,7 @@ if(isset($_SESSION["tipoUsuario"])){
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Clinica Cândido Torres</title>
+    <title>Cadastro Usuário</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat+Alternates">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/login.css">
@@ -50,6 +50,7 @@ if(isset($_SESSION["tipoUsuario"])){
     <header id="topo">
     <input type="checkbox" id="bt_menu">
     <label for="bt_menu">&#9776;</label>
+    <div id="right"><img src="../img/cct.png"></div>
     <nav class="menu" id="menu">
         <ul>
             <li><a href="../Telas/Home.php">Inicio</a></li>
