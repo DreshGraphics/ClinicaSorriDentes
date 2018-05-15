@@ -4,7 +4,7 @@
   height: 400px;
   text-align: center;
   border-radius: 5px;
-  background-color: #00beaa;
+  background-color: #0077b8;
   margin: auto;
   box-shadow: 1px 1px 2px #161616;
   z-index: 1000;
@@ -46,7 +46,7 @@
  padding-top: 26px;
  position: absolute;
  font-size: 25px;
- color: #00beaa;
+ color: #0077b8;
 }
 
 .container-login .form-input:nth-child(2)::before{
@@ -62,7 +62,7 @@
   border-radius: 30px;
   border: none;
   font-size: 15px;
-  background-color: #004840;
+  background-color: #003451;
   color: #fff;
 }
 
@@ -70,7 +70,7 @@
   border-radius: 30px;
   border: none;
   font-size: 15px;
-  background: rgba(255,255,255,0.5);
+  background: #A30006;
 }
 
 .container-login input:focus{
@@ -83,7 +83,7 @@
   display: block;
   text-decoration: none;
   cursor: pointer;
-  color: #004840;
+  color: #003451;
   font-family: "raleway", sans-serif;
 }
 

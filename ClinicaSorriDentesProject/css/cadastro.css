@@ -14,8 +14,8 @@
     text-align: center;
     font-family: 'Raleway', sans-serif;
 	border-radius: 5px;
-	background:#00beaa;
-	color:#252525;
+	background: #0077b8;
+	color: #f5f5f5;
 	box-shadow: 1px 1px 2px #181818;
 	width: 300px;
 	max-width: 90%;
@@ -60,7 +60,7 @@
 	font-family: 'Nunito', sans-serif;
 	font-weight: 600;
 	font-size: 20px;
-	color: #181818;
+	color: #f5f5f5;
 }
 
 .conteudo p {
@@ -98,7 +98,7 @@
 .conteudo button[type="submit"]{
 	float: left;
 	color: #fff;
-	background: #3B8686;
+	background: #003451;
 	font-family: 'Raleway', sans-serif;
 	font-size: 14px;
 	font-weight: 700;
@@ -118,7 +118,7 @@
  button[type="button"]{
  	float: left;
 	color: #fff;
-	background: #3B8686;
+	background: #003451;
 	font-family: 'Raleway', sans-serif;
 	font-size: 14px;
 	font-weight: 700;
@@ -136,7 +136,7 @@
  }
 
 .conteudo button:hover {
-  background: rgba(248,157,99,0.9);
+  background: #A30006;
 }
 
 
