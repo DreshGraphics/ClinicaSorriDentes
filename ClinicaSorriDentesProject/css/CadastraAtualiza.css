@@ -3,7 +3,7 @@ html, body{
 }
 
 .mid{
-	background-color: #00beaa !important;
+	background: #0077b8 !important;
 	padding: 10px !important;
 	margin-top: 5%;
 	margin-bottom: 5%;
@@ -13,6 +13,9 @@ html, body{
 	box-shadow: 1px 1px 2px #181818;
 }
 
+.mid label{
+	color: #f3f3f3 !important;
+}
 .mid input, .mid select{
 	padding: 0 10px;
 	height: 30px;
@@ -35,6 +38,7 @@ html, body{
 
 .titulo-h2{
 	font-family: "raleway", sans-serif !important;
+	color: #222222 !important;
 	text-transform: uppercase;
 	text-align: center !important;
 }
@@ -59,7 +63,7 @@ html, body{
 
 .mid .bt-atualizar, .mid .bt-voltar, .mid .bt-salvar, .mid .bt-buscar{
 	color: #fff !important;
-    background: #3B8686;
+    background: #003451;
     font-family: 'Raleway', sans-serif;
     font-size: 15px;
     font-weight: 700;
@@ -71,9 +75,13 @@ html, body{
 }
 
 .mid button:hover {
-  background: rgba(248,157,99,0.9);
+  background: #A30006;
 }
 
 .up{
 	text-transform: uppercase;
+}
+
+.mid footer{
+	font-family: "raleway", sans-serif !important;
 }
