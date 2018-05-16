@@ -2,19 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/Telas/TelaCadastroUsuario.php</file>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/Usuario/RemoveUsuario.php</file>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/Usuario/AtualizaUsuario.php</file>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/Login/ValidarLogin.php</file>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/Usuario/Usuario.php</file>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/Login/autenticarUsuario.php</file>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/BancoDeDados/Conexao_Banco_ClinicaTorres.php.inc</file>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/Usuario/TelaUsuarioTable.php</file>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/Telas/Index.php</file>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/Usuario/RegistraUsuario.php</file>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/css/login.css</file>
-            <file>file:/C:/wamp64/www/ClinicaCandidoTorresWeb/ClinicaCandidoTorresWebProject/BancoDeDados/Script_BancoDeDados_ClinicaTorres.sql</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
