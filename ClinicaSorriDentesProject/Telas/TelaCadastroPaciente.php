@@ -2,7 +2,6 @@
 session_start();
 include_once '../Login/ProtectPaginas.php';
 protect();
-
 if(isset($_SESSION["tipoUsuario"])){
     $tipo_user = $_SESSION["tipoUsuario"];
 }
@@ -83,35 +82,7 @@ if(isset($_SESSION["tipoUsuario"])){
               <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                 <input type="text" class="form-control" name="txtDataNasc" id="dataNasc" required>
             </div>
-
-                    <div class="form-group col-md-3">
-                        <label>Número do Prontuário:</label>
-                        <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                <input type="text" class="form-control" name="txtNum" id="numPront" required>
-                    </div>
-            </div>
-
-            <div class="row">
-              <div class="form-group col-md-3">
-                <label for="cpf">CPF:</label>
-                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                <input type="text" class="form-control" name="txtCPF" id="cpf" onblur="return VerificaCPF();" required>
-                <span id="error" style="color: red;font-style: italic;"></span>
-              </div>
-
-              <div class="form-group col-md-3">
-                <label>RG:</label>
-                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                <input type="text" class="form-control" name="txtRG" id="rg"  required>
-              </div>
-
-              <div class="form-group col-md-4">
-                <label for="email">Email:</label>
-                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                <input type="text" class="form-control" name="txtEmail" id="email" required>
-              </div>
-
-              <div class="form-group col-md-2">
+                          <div class="form-group col-md-3">
                 <label for="sexo">Sexo:</label>
                 <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                 <select class="form-control" name="cxSexo" id="sexo" required>
@@ -120,26 +91,26 @@ if(isset($_SESSION["tipoUsuario"])){
                                 <option value="Feminino">Feminino</option>
                 </select>
               </div>
-              </div>
 
-              <div class="row">
+                    
+            </div>
+
+            <div class="row">
+
+              <div class="form-group col-md-3">
+                <label for="cpf">CPF:</label>
+                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
+                <input type="text" class="form-control" name="txtCPF" id="cpf" onblur="return VerificaCPF();" required>
+                <span id="error" style="color: red;font-style: italic;"></span>
+              </div>
+             
                 <div class="form-group col-md-4">
                   <label for="atendimento">Tipo Atendimento:</label>
                   <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                   <input type="text" class="form-control up" name="txtAtendimento" id="atendimento" required>
                 </div>
 
-                <div class="form-group col-md-3">
-                <label for="acomp">Acompanhante:</label>
-                <input type="text" class="form-control up" name="txtAcompanhante" id="acomp" >
-                </div>
-
-                <div class="form-group col-md-3">
-                  <label for="indica">Indicação:</label>
-                <input type="text" class="form-control up" name="txtIndicacao" id="indica"> 
-                </div>
-          
-                <div class="form-group col-md-2">
+              <div class="form-group col-md-2">
                   <label for="eCivil">Estado Civil:</label>
                   <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                   <select class="form-control" name="cxEstadoCivil" id="eCivil" required>
@@ -151,15 +122,15 @@ if(isset($_SESSION["tipoUsuario"])){
                                 <option value="Separado(a)">Separado(a)</option>
                   </select>
                 </div>
-              </div>
-              <div class="row">
-                <div class="form-group col-md-5">
+              <div class="form-group col-md-3">
                   <label for="profissao">Profissão:</label>
                   <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                   <input type="text" class="form-control up" name="txtProfissao" id="profissao" required>
                 </div>
+              </div>
 
-                <div class="form-group col-md-4">
+              <div class="row">
+                  <div class="form-group col-md-4">
                   <label for="cidade">Cidade:</label>
                   <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                   <input type="text" class="form-control up" name="txtCidade" id="cidade" required>
@@ -170,25 +141,19 @@ if(isset($_SESSION["tipoUsuario"])){
                   <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                   <input type="text" class="form-control up" name="txtEstado" id="estado" required>
                 </div>
-              </div>
-
-              <div class="row">
-                <div class="form-group col-md-4">
-                  <label for="telefone">Telefone:</label>
-                  <input type="text" class="form-control" name="txtTelefone" id="telefone">
+                <div class="form-group col-md-3">
+                  <label for="CEP">CEP:</label>
+                  <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
+                  <input type="text" class="form-control" name="txtCEP" id="CEP" required>
                 </div>
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-2">
                   <label for="celular">Celular:</label>
                   <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                   <input type="text" class="form-control" name="txtCelular" id="celular" required>
                 </div>
 
-                <div class="form-group col-md-4">
-                  <label for="CEP">CEP:</label>
-                  <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                  <input type="text" class="form-control" name="txtCEP" id="CEP" required>
-                </div>
+                
               </div>
 
               <div class="row">
@@ -240,7 +205,6 @@ if(isset($_SESSION["tipoUsuario"])){
       $('#cpf').mask('000.000.000-00');
       $('#numero').mask('#########');
       $('#celular').mask('(00) 00000-0000');
-      $('#telefone').mask('(00) 0000-0000');
       $('#CEP').mask('00000-000');
     });
     </script>

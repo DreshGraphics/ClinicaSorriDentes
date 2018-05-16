@@ -73,7 +73,6 @@ $paciente->retornaTudo($paciente);
           <tr class="titulo-table">
             <th class="column1">Id</th>
             <th class="column2">Nome</th>
-            <th class="column3">Num Prontuario</th>
             <th class="column4">Sexo</th>
             <th class="column5">Tipo Atendimento</th>
             <th class="column6">Ação</th>
@@ -85,7 +84,6 @@ $paciente->retornaTudo($paciente);
           <tr class="tabela">
             <td><?php echo $dado->IDPACIENTE ?></td>
             <td class="up"><?php echo $dado->NOME ?></td>
-            <td class="up"><?php echo $dado->NUMEROPRONTUARIO ?></td>
             <td class="up"><?php echo $dado->SEXO ?></td>
             <td class="up"><?php echo $dado->TIPOATENDIMENTO ?></td>
             <td class="column6"><a href="../Telas/TelaAtualizarPaciente.php?Idpaciente=<?php echo $dado->IDPACIENTE;?>">Editar</a> 

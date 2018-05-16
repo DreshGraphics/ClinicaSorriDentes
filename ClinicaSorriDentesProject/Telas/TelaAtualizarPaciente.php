@@ -102,10 +102,7 @@ while ($dado = $paciente->retornaDados("object")) {
                 <input type="text" class="form-control" name="txtDataNasc" value="<?php echo $dado->DATANASC ?>" id="dataNasc" required>
             </div>
 
-                    <div class="form-group col-md-3">
-                        <label>Número do Prontuário:</label>
-                <input type="text" class="form-control" name="txtNum" value="<?php echo $dado->NUMEROPRONTUARIO ?>" id="numPront" required>
-                    </div>
+                  
             </div>
 
             <div class="row">
@@ -115,15 +112,7 @@ while ($dado = $paciente->retornaDados("object")) {
                 <span id="error" style="color: red;font-style: italic;"></span>
               </div>
 
-              <div class="form-group col-md-3">
-                <label>RG:</label>
-                <input type="text" class="form-control" name="txtRG" value="<?php echo $dado->RG ?>" id="rg" required>
-              </div>
-
-              <div class="form-group col-md-4">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control" name="txtEmail" value="<?php echo $dado->EMAIL ?>" id="email">
-              </div>
+              
 
               <div class="form-group col-md-2">
                 <label for="sexo">Sexo:</label>
@@ -141,15 +130,9 @@ while ($dado = $paciente->retornaDados("object")) {
                   <input type="text" class="form-control up" name="txtAtendimento" value="<?php echo $dado->TIPOATENDIMENTO ?>" id="atendimento" required>
                 </div>
 
-                <div class="form-group col-md-3">
-                <label for="acomp">Acompanhante:</label>
-                <input type="text" class="form-control up" name="txtAcompanhante" value="<?php echo $dado->ACOMPANHANTE ?>" id="acomp">
-                </div>
+                
 
-                <div class="form-group col-md-3">
-                  <label for="indica">Indicação:</label>
-                <input type="text" class="form-control up" name="txtIndicacao" value="<?php echo $dado->INDICACAO ?>" id="indica"> 
-                </div>
+                
           
                 <div class="form-group col-md-2">
                   <label for="eCivil">Estado Civil:</label>
@@ -181,11 +164,7 @@ while ($dado = $paciente->retornaDados("object")) {
                 </div>
               </div>
 
-              <div class="row">
-                <div class="form-group col-md-4">
-                  <label for="telefone">Telefone:</label>
-                  <input type="text" class="form-control" name="txtTelefone" value="<?php echo $dado->TELEFONE ?>" id="telefone">
-                </div>
+         
 
                 <div class="form-group col-md-4">
                   <label for="celular">Celular:</label>
@@ -243,9 +222,7 @@ while ($dado = $paciente->retornaDados("object")) {
       $(document).ready(function(){
       $('#dataNasc').mask('00/00/0000');
       $('#cpf').mask('000.000.000-00');
-      $('#rg').mask('0000000000-0');
       $('#celular').mask('(00) 00000-0000');
-      $('#telefone').mask('(00) 0000-0000');
       $('#CEP').mask('00000-000');
     });
     </script> 
@@ -260,19 +237,12 @@ $metodo = $_POST;
 //PEGANDO VALORES DOS CAMPOS PARA ATUALIZAR
 if (isset($metodo["txtNome"])) {
     $nome = $metodo["txtNome"];
-    $numeroProntuario = $metodo["txtNum"];
     $sexo = $metodo["cxSexo"];
     $datanasc = $metodo["txtDataNasc"];
     $cpf = $metodo["txtCPF"];
-    $rg = $metodo["txtRG"];
-    $email = $metodo["txtEmail"];
     $profissao = $metodo["txtProfissao"];
     $tipoAtendimento = $metodo["txtAtendimento"];
-    $acompanhante = $metodo["txtAcompanhante"];
-    $estrangeiro = $metodo["txtEstrangeiro"];
-    $telefone = $metodo["txtTelefone"];
     $celular = $metodo["txtCelular"];
-    $indicacao = $metodo["txtIndicacao"];
     $estadocivil = $metodo["cxEstadoCivil"];
     $endereco = $metodo["txtEndereco"];
     $bairro = $metodo["txtBairro"];
@@ -284,19 +254,12 @@ if (isset($metodo["txtNome"])) {
 
     //SETANDO VALORES PARA ATUALIZAR
     $paciente->setValor("NOME", $nome);
-    $paciente->setValor("NUMEROPRONTUARIO", $numeroProntuario);
     $paciente->setValor("SEXO", $sexo);
     $paciente->setValor("DATANASC", $datanasc);
     $paciente->setValor("CPF", $cpf);
-    $paciente->setValor("RG", $rg);
-    $paciente->setValor("EMAIL", $email);
     $paciente->setValor("PROFISSAO", $profissao);
     $paciente->setValor("TIPOATENDIMENTO", $tipoAtendimento);
-    $paciente->setValor("ACOMPANHANTE", $acompanhante);
-    $paciente->setValor("ESTRANGEIRO", $estrangeiro);
-    $paciente->setValor("TELEFONE", $telefone);
     $paciente->setValor("CELULAR", $celular);
-    $paciente->setValor("INDICACAO", $indicacao);
     $paciente->setValor("ESTADOCIVIL", $estadocivil);
     $paciente->setValor("ENDERECO", $endereco);
     $paciente->setValor("BAIRRO", $bairro);

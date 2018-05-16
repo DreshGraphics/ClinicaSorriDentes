@@ -14,9 +14,9 @@ class Paciente extends baseBD {
         if (sizeof($campos) <= 0) {
             $this->campos_valores = array(
                 "NOME" => NULL,
-                "NUMEROPRONTUARIO" => NULL, "SEXO" => NULL, "DATANASC" => NULL, "CPF" => NULL, "RG" => NULL,
-                "EMAIL" => NULL, "PROFISSAO" => NULL, "TIPOATENDIMENTO" => NULL, "ACOMPANHANTE" => NULL,
-                "TELEFONE" => NULL, "CELULAR" => NULL, "INDICACAO" => NULL,"ESTADOCIVIL" => NULL,  
+                "SEXO" => NULL, "DATANASC" => NULL, "CPF" => NULL, 
+                "PROFISSAO" => NULL, "TIPOATENDIMENTO" => NULL, 
+                "CELULAR" => NULL, "ESTADOCIVIL" => NULL,  
                 "ENDERECO" => NULL,"BAIRRO" => NULL,"NUMERO" => NULL,"CIDADE" => NULL, "ESTADO" => NULL,
                 "COMPLEMENTO" => NULL, "CEP" => NULL
             );
