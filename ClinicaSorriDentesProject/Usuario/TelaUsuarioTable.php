@@ -57,7 +57,7 @@ $usuario->retornaTudo($usuario);
             <li><a href="#">Cadastro</a>
                 <ul>
                     <li id="opcaoUser"><a href="../Telas/TelaCadastroUsuario.php">Usuário</a></li>
-                    <li><a href="../Telas/TelaCadastroMedico.php">Médico</a></li>
+                    <li><a href="../Telas/TelaCadastroMedico.php">Profisional</a></li>
                     <li><a href="../Telas/TelaCadastroPaciente.php">Paciente</a></li>
                 </ul>
             </li>
