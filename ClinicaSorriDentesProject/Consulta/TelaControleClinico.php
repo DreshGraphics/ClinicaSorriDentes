@@ -1,21 +1,23 @@
+
 <!DOCTYPE html>
 <html>
 <head>
+        <meta charset="UTF-8">
 	<title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="../js/formdinamic.js"></script>
 </head>
 <body>
-	<form>
+            <form method="POST" action="salvarControleClinico.php">
 		<legend>Controle Clinico</legend>
 		<br>
 
 		<div class="input_fields">
 		<label for="qtd">QTD</label>
-		<input type="text" name="" id="qtd">
+		<input type="text" name="qtd[]" id="qtd">
 
 		<label for="orç">Orçamento</label>
-		<select>
+                <select name="orcamento[]" id="orçamento">
 			<option>extração</option>
 			<option>obturação amálgama</option>
 			<option>obturaçao luz halogênea</option>
@@ -34,13 +36,14 @@
 			<option>clareamento c/ moldeiras</option>
 		</select>
 		<label for="import">Importância</label>
-		<input type="text" name="">
+		<input type="text" name="importancia[]">
 		</div>
 		<br>
 		<label>Valor Total</label>
-		<input type="text" name="">
+		<input type="text" name="total[]">
+                <br /> <br>
+                <input type="submit" value="Salvar">
 	</form>
-	<br>
-	<button class="add_campo">Adicionar Serviço</button>
+    <button class="add_campo">Adicionar Serviço</button>
 </body>
 </html>
