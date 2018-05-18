@@ -101,15 +101,10 @@ INSERT INTO DENTES VALUES
 
 INSERT INTO DENTES VALUES
 (NULL, "PRESA INTERNA", "PIVOT", 5, 1, 1);
-/*---------------------------------------------------------*/
 
-/* Query de soma de valores por data */
-SELECT 
-SUM(D.VALOR) 
-FROM DENTES AS D
-INNER JOIN FICHA_CLINICA AS F
-ON D.ID_FICHACLINICA = F.IDFICHACLINICA
-WHERE F.DATA_FICHA = '2018-05-17';
+/*-----------------------------------------------------------------------------*/
+/* /- QUERYS -\ */
+/*-----------------------------------------------------------------------------*/
 
 /* CONSULTA POR NOME E DATA*/
 
