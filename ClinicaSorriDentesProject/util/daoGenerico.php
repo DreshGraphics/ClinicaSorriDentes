@@ -32,7 +32,7 @@ class daoGenerico extends ConexaoDB {
            return $this->executaSQL($sql);
        }
        
-   public function atualizar($objeto){
+       public function atualizar($objeto){
            $sql = "UPDATE ".$objeto->tabela." SET ";
        for($i=0; $i<count($objeto->campos_valores); $i++){
            $sql .= key($objeto->campos_valores)."=";

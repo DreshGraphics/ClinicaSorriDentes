@@ -10,9 +10,7 @@ class Dentes extends baseBD {
             $this->campos_valores = array(
                 "NOME_DENTE" => NULL,
                 "PROCEDIMENTO" => NULL, 
-                "VALOR" => NULL, 
-                "ID_PACIENTE_DENTE" => NULL,
-                "ID_FICHACLINICA" => NULL
+                "VALOR" => NULL
             );
         } else {
             $this->campos_valores = $campos;
