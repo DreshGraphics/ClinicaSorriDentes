@@ -25,5 +25,4 @@ class Paciente extends baseBD {
         }
         $this->campopk="IDPACIENTE";
     }
-
 }
