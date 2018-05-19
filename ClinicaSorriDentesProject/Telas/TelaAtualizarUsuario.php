@@ -99,7 +99,7 @@ $dado = $usuario->retornaDados("object");
                     <label for="senhaU">Senha</label> 
 
                 </p>
-                    <input type="password" name="senha" id="senhaU" value="<?php echo $dado->SENHA ?>" required>
+                    <input type="password" name="senha" id="senhaU" value="******" onfocus="this.value='';" required>
                 
                 <p> 
                     <label for="tipoU">Tipo de Usuário</label>                 
