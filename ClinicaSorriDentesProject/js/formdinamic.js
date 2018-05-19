@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     if (x < max_fields) { 
       x++; //text box increment
-      $(wrapper).append('<div class="input_fields"><label for="qtd"> QTD </label><input type="text" name="qtd[]" id="qtd"><label for="orcamento"> Orçamento </label><select name="orcamento[]" id="orcamento"><option>extração</option><option>obturação amálgama</option><option>obturaçao luz halogênea</option><option>tratamento canal</option><option>limpeza</option><option>remoção de tártaro</option><option>flúor</option><option>pivot</option><option>coroa porcelana</option><option>coroa venne</option><option>cirurgia</option><option>prótese superior</option><option>prótese inferior</option><option>radiografia</option><option>aparelho</option><option>clareamento c/ moldeiras</option></select><label for="import"> Importância </label><input type="text" name="importancia[]"><label for="vl_un"> Valor Unitário </label><input type="text" name="" id="vl_un" class="vl_un" onkeyup="sum()"><a href="#" class="remove_field">Remove</a></div>'); //add input box
+      $(wrapper).append('<div class="row"><div class="col-sm-12"><div class="row input_fields"><div class="form-group col-sm-3"><label for="qtd">Quantidade</label><input type="text" name="qtd[]" id="qtd"></div><div class="form-group col-sm-3"><label for="orcamento">Orçamento</label><select name="orcamento[]" id="orcamento"><option>extração</option><option>obturação amálgama</option><option>obturaçao luz halogênea</option><option>tratamento canal</option><option>limpeza</option><option>remoção de tártaro</option><option>flúor</option><option>pivot</option><option>coroa porcelana</option><option>coroa venne</option><option>cirurgia</option><option>prótese superior</option><option>prótese inferior</option><option>radiografia</option><option>aparelho</option><option>clareamento c/ moldeiras</option></select></div><div class="form-group col-sm-3"><label for="import">Importância</label><input type="text" name="importancia[]" id="import"></div><div class="form-group col-sm-3"><label for="vl_un">Valor Unitário</label><input type="text" name="valor_uni" id="vl_un" class="vl_un" onkeyup="sum()"></div></div></div>'); //add input box
     }
     //Fazendo com que cada uma escreva seu name
     wrapper.find("input:text" + "select").each(function() {
@@ -35,3 +35,4 @@ function sum()
   });
   $('#valor_total').val(total);
 }
+
