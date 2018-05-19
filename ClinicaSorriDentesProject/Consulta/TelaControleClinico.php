@@ -4,8 +4,14 @@
 <head>
         <meta charset="UTF-8">
 	<title></title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="../js/jquery-3.2.1.js"></script>
 	<script src="../js/formdinamic.js"></script>
+	<script src="../js/jquery.maskMoney.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function(){
+              $("input.dinheiro").maskMoney({showSymbol:true, symbol:"R$", decimal:",", thousands:"."});
+        });
+    </script>
 </head>
 <body>
             <form method="POST" action="salvarControleClinico.php">
@@ -16,8 +22,8 @@
 		<label for="qtd">QTD</label>
 		<input type="text" name="qtd[]" id="qtd">
 
-		<label for="orç">Orçamento</label>
-                <select name="orcamento[]" id="orçamento">
+		<label for="orcamento">Orçamento</label>
+                <select name="orcamento[]" id="orcamento">
 			<option>extração</option>
 			<option>obturação amálgama</option>
 			<option>obturaçao luz halogênea</option>
@@ -36,11 +42,13 @@
 			<option>clareamento c/ moldeiras</option>
 		</select>
 		<label for="import">Importância</label>
-		<input type="text" name="importancia[]">
+		<input type="text" name="importancia[]" id="import">
+		<label for="vl_un">Valor Unitário</label>
+		<input type="text" name="" id="vl_un" class="vl_un" onkeyup="sum()">
 		</div>
 		<br>
 		<label>Valor Total</label>
-		<input type="text" name="total[]">
+		<input type="text" name="total[]" id="valor_total">
                 <br /> <br>
                 <input type="submit" value="Salvar">
 	</form>
