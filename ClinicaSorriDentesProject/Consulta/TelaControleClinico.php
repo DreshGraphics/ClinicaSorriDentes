@@ -101,7 +101,7 @@
                 	</div>
 
                 	<button type="submit" class="bt-salvar">Salvar</button>
-                	<button type="button" class="bt-buscar add_campo">Adicionar</button>
+                	<button type="button" class="bt-buscar add_campo" >Adicionar</button>
                 	</form>
 
         	</div>

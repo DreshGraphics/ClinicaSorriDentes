@@ -28,11 +28,15 @@ $(document).ready(function() {
 
 function sum()
 {
+  m = document.getElementById("qtd").value;
   let total = 0;
   
   $('.vl_un').each(function() {
-      total += +$(this).val();
+      total += +$(this).val()*m;
   });
   $('#valor_total').val(total);
 }
+
+
+
 
