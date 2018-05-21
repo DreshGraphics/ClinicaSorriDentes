@@ -44,9 +44,9 @@ if(isset($_SESSION["tipoUsuario"])){
     </head>
     <body>
         <header id="topo">
-            <input type="checkbox" id="bt_menu">
-            <label for="bt_menu">&#9776;</label>
-            <div id="right"><img src="../img/cct.png"></div>
+    <input type="checkbox" id="bt_menu">
+    <label for="bt_menu">&#9776;</label>
+    <div id="right"><img src="../img/cct.png"></div>
     <nav class="menu" id="menu">
         <ul>
             <li><a href="../Telas/Home.php">Inicio</a></li>
@@ -56,6 +56,11 @@ if(isset($_SESSION["tipoUsuario"])){
                     <li><a href="../Telas/TelaCadastroMedico.php">Profissional</a></li>
                     <li><a href="../Telas/TelaCadastroPaciente.php">Paciente</a></li>
                 </ul>
+            </li>
+            <li><a href="#">Consulta</a>
+            <ul>
+                <li><a href="../Telas/TelaControleClinico.php">Controle Clinico</a></li>
+            </ul>
             </li>
             <li><a href="../Login/Sair.php">Sair</a></li>
         </ul>
