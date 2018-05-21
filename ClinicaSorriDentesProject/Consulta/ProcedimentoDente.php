@@ -2,14 +2,15 @@
 
 include_once '../util/baseBD.php';
 
-class Dentes extends baseBD {
+class ProcedimentoDente extends baseBD {
     public function __construct($campos = array()) {
         parent::__construct();
-        $this->tabela = "dentes";
+        $this->tabela = "procedimento_dentes";
         if (sizeof($campos) <= 0) {
             $this->campos_valores = array(
-                "NOME_DENTE" => NULL,
+                "NUMERO_DENTE" => NULL,
                 "PROCEDIMENTO" => NULL, 
+                "IMPORTANCIA" => NULL,
                 "VALOR" => NULL
             );
         } else {

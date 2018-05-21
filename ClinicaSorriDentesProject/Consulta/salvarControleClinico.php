@@ -1,26 +1,27 @@
 <?php
+session_start();
+
+require_once '../util/daoGenerico.php';
+require_once '../Consulta/ProcedimentoDente.php';
+
+$dente = new ProcedimentoDente();
 
 $metodo = $_POST;
 
-if(isset($metodo["qtd"])){
-    $quantidade = $metodo["qtd"];
-    $orcamento = $metodo["orcamento"];
+if(isset($metodo["procedimento"])){
+    $procedimento = $metodo["procedimento"];
     $importancia = $metodo["importancia"];
+    $orcamentoFinal = $metodo["orçamentoFinal"];
     
-    foreach ($quantidade as $qtd){
-        echo $qtd.'</br>';
+    
+    for( $i=0; $i<count($metodo['procedimento']); $i++ ){
+            
+        $dente->setValor("NUMERO_DENTE", "6");
+        $dente->setValor("PROCEDIMENTO", $procedimento[$i]);
+        $dente->setValor("IMPORTANCIA", $importancia[$i]);
+       
     }
     
-    foreach ($orcamento as $orc){
-        echo $orc.'</br>';
-    }
-    
-    foreach ($importancia as $imprt){
-        echo $imprt.'</br>';
-    }
-    
-    
-    
-    
+    $dente->inserir($dente);
     
 }

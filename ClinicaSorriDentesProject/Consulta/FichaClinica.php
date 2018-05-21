@@ -10,7 +10,7 @@ class ControleClinico extends baseBD {
             $this->campos_valores = array(
                 "DATA_FICHA" => NULL,
                 "MEDICO_RESPONSAVEL" => NULL, 
-                "OBSERVACOES" => NULL,
+                "OBSERVACOES" => NULL
             );
         } else {
             $this->campos_valores = $campos;

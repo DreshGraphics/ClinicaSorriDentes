@@ -56,8 +56,8 @@
                 		</div>
 
                 		<div class="form-group col-sm-3">
-                			<label for="orcamento">Orçamento</label>
-					           <select name="orcamento[]" id="orcamento">
+                			<label for="proc">Procedimento</label>
+					           <select name="procedimento[]" id="procedimento">
 								<option>extração</option>
 								<option>obturação amálgama</option>
 								<option>obturaçao luz halogênea</option>
@@ -96,7 +96,7 @@
 
                 		<div class="form-group col-sm-3">
                 			<label>Orçamento Final</label>
-                			<input type="text" name="">
+                			<input type="text" name="orçamentoFinal" id="orçamentoFinal">
                 		</div>
                 	</div>
 
