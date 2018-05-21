@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../Consulta/teste.php';
+require_once '../Consulta/RegistraProcessoDente.php';
 require_once '../BancoDeDados/Conexao_Banco_ClinicaSorridentes.php.inc';
 require_once '../util/daoGenerico.php';
 require_once '../Consulta/ProcedimentoDente.php';
@@ -13,12 +13,12 @@ $metodo = $_POST;
 if(isset($metodo["procedimento"])){
     $procedimento = $metodo["procedimento"];
     $importancia = $metodo["importancia"];
-    $orcamentoFinal = $metodo["orçamentoFinal"];
+    $valor = $metodo["valor_uni"];
     
     
     for( $i=0; $i<count($metodo['procedimento']); $i++ ){
             
-        $resultado = $dente->Salvar($procedimento[$i], $importancia[$i]);
+        $resultado = $dente->Salvar($procedimento[$i], $importancia[$i],$valor[$i]);
         
        /* 
         $dente->setValor("NUMERO_DENTE", "6");

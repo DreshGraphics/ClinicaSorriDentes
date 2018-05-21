@@ -84,7 +84,7 @@
 
                 		<div class="form-group col-sm-3">
                 			<label for="vl_un">Valor Unitário</label>
-							<input type="text" name="valor_uni" id="vl_un" class="vl_un" onkeyup="sum()">
+							<input type="text" name="valor_uni[]" id="vl_un" class="vl_un" onkeyup="sum()">
                 		</div>
                 	</div>
 
