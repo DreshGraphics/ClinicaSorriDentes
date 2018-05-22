@@ -18,6 +18,7 @@
 	<script type="text/javascript">
         $(document).ready(function(){
               $("input.dinheiro").maskMoney({showSymbol:true, symbol:"R$", decimal:",", thousands:"."});
+
         });
     </script>
 </head>
@@ -52,7 +53,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2 class="titulo-h2">Controle Clinico</h2>
-                <form method="POST" action="salvarControleClinico.php">
+                <form method="POST" action="../Consulta/salvarControleClinico.php">
         </div>
         </div>
 
@@ -86,7 +87,7 @@
                         </div>
 
                         <div class="form-group col-sm-3">
-                            <label>Numero do Dente</label>
+                            <label>Número do Dente</label>
                             <input type="number" name="">
                         </div>
 
@@ -98,6 +99,11 @@
                         <div class="form-group col-sm-3">
                             <label for="vl_un">Valor Unitário</label>
                             <input type="text" name="valor_uni[]" id="vl_un" class="vl_un" onkeyup="sum()">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label>Valor Individual</label>
+                            <input type="text" name="" class="resultado" disabled="disabled">
                         </div>
 
                         <div class="form-group separador col-sm-12">
@@ -119,7 +125,7 @@
 
                 	<button type="submit" class="bt-salvar">Salvar</button>
                 	<button type="button" class="bt-buscar add_campo" >Adicionar</button>
-                	</form>
+                    </form>
 		</div>
 	</div>
 	<footer>
@@ -127,3 +133,8 @@
 	</footer>
 </body>
 </html>
+<script type="text/javascript">
+    $("#removerDiv").click(function(){
+    $('#divremove').remove();
+});
+</script>

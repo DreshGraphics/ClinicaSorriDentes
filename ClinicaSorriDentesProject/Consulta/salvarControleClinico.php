@@ -29,8 +29,8 @@ if(isset($metodo["procedimento"])){
     }
     
     if($resultado){
-        echo "<script>alert('Dados de Processo salvo com Sucesso!');window.location = '../Consulta/TelaControleClinico.php';</script>";
+        echo "<script>alert('Dados de Processo salvo com Sucesso!');window.location = '../Telas/TelaControleClinico.php';</script>";
     }else{
-        echo "<script>alert('Erro ao tentar salvar dados no Banco!');window.location = '../Consulta/TelaControleClinico.php';</script>";
+        echo "<script>alert('Erro ao tentar salvar dados no Banco!');window.location = '../Telas/TelaControleClinico.php';</script>";
     }
 }
