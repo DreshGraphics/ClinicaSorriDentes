@@ -61,7 +61,7 @@
                     <div class="row">
                         <div class="form-group col-sm-3">
                             <label for="qtd">Quantidade</label>
-                            <input type="text" name="qtd[]" id="qtd">
+                            <input type="text" name="qtd[]" id="qtd" oninput="multiplicacao()">
                         </div>
 
                         <div class="form-group col-sm-3">
@@ -98,12 +98,7 @@
 
                         <div class="form-group col-sm-3">
                             <label for="vl_un">Valor Unitário</label>
-                            <input type="text" name="valor_uni[]" id="vl_un" class="vl_un" onkeyup="sum()">
-                        </div>
-
-                        <div class="form-group col-sm-3">
-                            <label>Valor Individual</label>
-                            <input type="text" name="" class="resultado" disabled="disabled">
+                            <input type="text" name="valor_uni[]" id="vl_un" class="vl_un" oninput="multiplicacao()">
                         </div>
 
                         <div class="form-group separador col-sm-12">
@@ -114,12 +109,12 @@
                 	<div class="row">
                 		<div class="form-group col-sm-3">
                 			<label>Valor Total</label>
-							<input type="text" name="total[]" id="valor_total" disabled="disabled">
+							<input type="text" name="total[]" class="valorTotal" disabled="disabled" >
                 		</div>
 
                 		<div class="form-group col-sm-3">
                 			<label>Orçamento Final</label>
-                			<input type="text" name="orçamentoFinal" id="orçamentoFinal">
+                			<input type="text" name="orçamentoFinal" oninput="multiplicacao()" id="orçamentoFinal">
                 		</div>
                 	</div>
 
@@ -133,8 +128,3 @@
 	</footer>
 </body>
 </html>
-<script type="text/javascript">
-    $("#removerDiv").click(function(){
-    $('#divremove').remove();
-});
-</script>
