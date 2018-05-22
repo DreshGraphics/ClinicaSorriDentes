@@ -13,7 +13,7 @@ class RegistraProcessoDente extends ConexaoDB{
          if ($resultado){
              return $resultado;
          } else {
-            echo "<script>alert('Erro ao tentar Salvar processo no banco!');window.location = '../TelaControleClinico/TelaControleClinico.php';</script>";
+            echo "<script>alert('Erro ao tentar Salvar processo no banco!');window.location = '../Telas/TelaControleClinico.php';</script>";
             
          }
 
