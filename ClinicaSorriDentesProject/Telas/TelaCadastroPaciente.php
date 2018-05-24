@@ -22,7 +22,6 @@ if(isset($_SESSION["tipoUsuario"])){
     <link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="estilo.css" rel="stylesheet">
     <script src="../js/ValidaCpf.js"></script>
     <script src="../js/jquery-3.2.1.js"></script>
     <script src="../js/login.js"></script>

@@ -74,6 +74,25 @@ html, body{
     border-radius: 35px;
 }
 
+.bt-remover {
+	color: #fff !important;
+    background: #003451;
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 35px;
+    margin-bottom: 5px;
+}
+
+.bt-remover:hover{
+	background: #A30006 !important;
+}
+
+
 .mid button:hover {
   background: #A30006;
 }
