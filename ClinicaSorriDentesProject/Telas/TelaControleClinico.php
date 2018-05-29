@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../js/jquery-3.2.1.js"></script>
-    <script src="../js/formdinamico.js"></script>
+   
 </head>
 <body>
     <header id="topo">
@@ -42,11 +42,12 @@
     <div class="container mid">
         <div class="row col-md-12">
             <h2 class="titulo-h2">Controle Clinico</h2>
-            <form method="POST" action="../Consulta/salvarControleClinico.php">
         </div>
 
-        <div id="linhas-container">
-            <div class="linha-campos">
+        <form method="POST" action="../telas/teste.php">
+
+                <div id="linhas-container">
+                <div class="linha-campos">
 
                 <div class="row">
 
@@ -84,7 +85,7 @@
 
                 <div class="form-group col-md-3">
                     <label for="proc">Importância</label>
-                    <select name="procedimento[]" id="procedimento">
+                    <select name="importancia[]" id="procedimento">
                         <option>BAIXA IMPORTÂNCIA</option>
                         <option>MÉDIA IMPORTÂNCIA</option>
                         <option>ALTA IMPORTÂNCIA</option>
@@ -99,7 +100,8 @@
 
                 <div class="form-group col-md-3">
                 <label>Total Individual</label>
-                <input type="number" value="0" name="total[]" disabled>
+                <input type="number" value="0" name="total[]" readonly="readonly">
+
                 </div>
 
                 </div>
@@ -111,7 +113,7 @@
 
             <div class="form-group col-md-3">
             <label>Valor Total</label>
-            <input type="number" value="0" name="valor_total" disabled>
+            <input type="number" value="0" name="valor_total" readonly="readonly">
             </div>
 
             <div class="form-group col-sm-3">
@@ -121,7 +123,7 @@
 
             </div>
 
-            <button type="submit" class="bt-salvar">Salvar</button>
+            <button class="bt-salvar">Salvar</button>
             <button id="botao-add" class="bt-buscar">Adicionar</button>
 
         </div>
@@ -136,7 +138,7 @@
 </body>
 </html>
 <script type="text/javascript">
-    var linhasCont = document.querySelector('#linhas-container');
+   var linhasCont = document.querySelector('#linhas-container');
     var totalCont = document.querySelector('#container-total');
     var primLinha = linhasCont.querySelector('.linha-campos');
     var linhas = [];
@@ -155,9 +157,9 @@
         novaLinha.querySelector('input[name="quant[]"]').value = 0;
 
         var botDeletar = document.createElement('button');
+        $(botDeletar).addClass("bt-remover");
 
         botDeletar.innerText = "Remover";
-        $(botDeletar).addClass("bt-remover");
 
         botDeletar.addEventListener('click', function(e){
             e.preventDefault();
