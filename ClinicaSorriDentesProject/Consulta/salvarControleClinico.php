@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once '../Consulta/RegistraProcessoDente.php';
 require_once '../BancoDeDados/Conexao_Banco_ClinicaSorridentes.php.inc';
 require_once '../util/daoGenerico.php';
 require_once '../Consulta/ProcedimentoDente.php';
