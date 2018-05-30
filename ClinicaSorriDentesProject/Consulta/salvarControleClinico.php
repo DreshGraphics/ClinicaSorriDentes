@@ -12,19 +12,34 @@ $metodo = $_POST;
 
 if(isset($metodo["procedimento"])){
     $procedimento = $metodo["procedimento"];
+    $dente = $metodo["numDente"];
     $importancia = $metodo["importancia"];
-    $valor = $metodo["valor_uni"];
+    $valor = $metodo["valor_unit"];
+    
+    for($i=0; $i<count($metodo['procedimento']); $i++){
+        
+        echo $procedimento[$i].'<br>';
+        echo $dente[$i].'<br>';
+        echo $importancia[$i].'<br>';
+        echo $valor[$i].'<br><br>';
+        
+    }
     
     
+    
+    
+    
+  
+    /*
     for( $i=0; $i<count($metodo['procedimento']); $i++ ){
             
         $resultado = $dente->Salvar($procedimento[$i], $importancia[$i],$valor[$i]);
         
-       /* 
+        
         $dente->setValor("NUMERO_DENTE", "6");
         $dente->setValor("PROCEDIMENTO", $procedimento[$i]);
         $dente->setValor("IMPORTANCIA", $importancia[$i]);
-         $dente->inserir($dente);*/
+         $dente->inserir($dente);
        
     }
     
@@ -32,5 +47,5 @@ if(isset($metodo["procedimento"])){
         echo "<script>alert('Dados de Processo salvo com Sucesso!');window.location = '../Telas/TelaControleClinico.php';</script>";
     }else{
         echo "<script>alert('Erro ao tentar salvar dados no Banco!');window.location = '../Telas/TelaControleClinico.php';</script>";
-    }
+    }*/
 }
