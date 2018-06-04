@@ -1,5 +1,8 @@
 <?php
 session_start();
+require_once '../util/daoGenerico.php';
+require_once '../Consulta/FuchaClinica.php';
+
 include_once '../Login/ProtectPaginas.php';
 protect();
 
@@ -50,7 +53,7 @@ if(isset($_SESSION["TIPOUSUARIO"])){
                     <li><a href="#">Cadastro</a>
                         <ul>
                             <li id="opcaoUser"><a href="../Telas/TelaCadastroUsuario.php">Usuário</a></li>
-                            <li><a href="../Telas/TelaCadastroMedico.php">Profissional</a></li>
+                            <li><a href="../Telas/TelaCadastrocontroleClinico.php">Profissional</a></li>
                             <li><a href="../Telas/TelaCadastroPaciente.php">Paciente</a></li>
                         </ul>
                     </li>
@@ -78,12 +81,12 @@ if(isset($_SESSION["TIPOUSUARIO"])){
 
                             <div class="form-group col-md-3">
                                 <label for="qtd">Quantidade</label>
-                                <input type="number" value="0" name="quant[]" id="qtd">
+                                <input type="number" value="0" name="quant[]" value="<?php echo $dado->quant[] ?>" id="qtd">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="proc">Procedimento</label>
-                                <select name="procedimento[]" id="procedimento">
+                                <select name="procedimento[]" id="procedimento" value="<?php echo $dado->procedimento[] ?>">
                                     <option>extração</option>
                                     <option>obturação amálgama</option>
                                     <option>obturaçao luz halogênea</option>
@@ -105,12 +108,12 @@ if(isset($_SESSION["TIPOUSUARIO"])){
 
                             <div class="form-group col-md-3">
                                 <label>Número do Dente</label>
-                                <input type="number" name="numDente[]">
+                                <input type="number" name="numDente[]" value="<?php echo $dado->numDente[] ?>">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="proc">Importância</label>
-                                <select name="importancia[]" id="importancia">
+                                <select name="importancia[]" id="importancia" value="<?php echo $dado->importancia[] ?>">
                                     <option>BAIXA IMPORTANCIA</option>
                                     <option>MEDIA IMPORTANCIA</option>
                                     <option>ALTA IMPORTANCIA</option>
@@ -120,12 +123,12 @@ if(isset($_SESSION["TIPOUSUARIO"])){
 
                             <div class="form-group col-md-3">
                                 <label>Valor Unitário</label>
-                                <input type="number" value="0" name="valor_unit[]">
+                                <input type="number" value="0" name="valor_unit[]" value="<?php echo $dado->valor_unit[] ?>">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label>Total Individual</label>
-                                <input type="number" value="0" name="total[]" readonly="readonly">
+                                <input type="number" value="0" name="total[]" readonly="readonly" value="<?php echo $dado->total[] ?>">
 
                             </div>
 
@@ -143,7 +146,7 @@ if(isset($_SESSION["TIPOUSUARIO"])){
 
                         <div class="form-group col-sm-3">
                             <label>Orçamento Final</label>
-                            <input type="text" name="orçamentoFinal" id="orçamentoFinal">
+                            <input type="text" name="orçamentoFinal" id="orçamentoFinal" value="<?php echo $dado->orçamentoFinal[] ?>">
                         </div>
 
                     </div>

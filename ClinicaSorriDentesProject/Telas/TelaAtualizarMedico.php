@@ -54,7 +54,7 @@ $dado = $medico->retornaDados("object");
         
     </head>
     <body>
-        <header id="topo">
+    <header id="topo">
     <input type="checkbox" id="bt_menu">
     <label for="bt_menu">&#9776;</label>
     <div id="right"><img src="../img/cct.png"></div>
