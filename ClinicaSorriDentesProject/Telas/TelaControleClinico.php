@@ -1,3 +1,14 @@
+<?php
+session_start();
+include_once '../Login/ProtectPaginas.php';
+protect();
+
+if(isset($_SESSION["TIPOUSUARIO"])){
+    $tipo_user = $_SESSION["TIPOUSUARIO"];
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +23,20 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="../js/jquery-3.2.1.js"></script>
+        
+        <script type="text/javascript">
+            
+            $(document).ready(function(){
+              
+              var tipo_user = "<?php echo $tipo_user ?>";
+              
+              if(tipo_user != "Administrador"){
+                   document.getElementById("opcaoUser").style.display = "none";
+              }
+                               
+            });
+        
+        </script>
 
     </head>
     <body>
