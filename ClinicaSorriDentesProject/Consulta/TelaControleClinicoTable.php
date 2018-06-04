@@ -70,8 +70,8 @@ $procedimento->retornaTudo($procedimento);
             <td class="up"><?php echo $dado->VALOR ?></td>
             <td class="column6"><a href="<?php echo $dado->IDDENTE;?>">Editar</a> 
                 <a href="" id="separador">|</a>
-                <a href="javascript: if(confirm('Tem certeza que quer deletar o usuário <?php echo $dado->PROCEDIMENTO; ?> ?')) 
-                    location.href='<?php echo $dado->IDDENTE; ?>';">Excluir</a>
+                <a href="javascript: if(confirm('TEM CERTEZA AO DELETAR O PROCEDIMENTO: <?php echo $dado->PROCEDIMENTO; ?> ?')) 
+                    location.href='ExcluirControleClinico.php?IdDente=<?php echo $dado->IDDENTE;?>';">Excluir</a>
                 </td>
           </tr> 
           </tbody>
