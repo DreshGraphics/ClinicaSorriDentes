@@ -19,6 +19,26 @@ label{
 	font-size: 15px !important;
 }
 
+a:hover{
+	text-decoration: none !important;
+}
+
+.titulo-boot{
+	margin-top: 30px;
+	margin-bottom: 20px;
+	color: #0077b8;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 0;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 16px;
+}
+
+.tupla{
+	margin-top: 5px;
+}
+
 #right{
 	position: absolute;
 }
@@ -123,14 +143,14 @@ label[for="bt_menu"]{
 }
 
 footer {
-  background: #181818;
-  width: 100%;
-  min-height: 60px;
-  float: left;
-  position:absolute;
-  left: 0;
-  bottom:0;
-  box-shadow: 0 0 3px #000;
+	background: #181818;
+	width: 100%;
+	min-height: 60px;
+	float: left;
+	position:absolute;
+	left: 0;
+	bottom:0;
+	box-shadow: 0 0 3px #000;
 }
 
 footer h1{

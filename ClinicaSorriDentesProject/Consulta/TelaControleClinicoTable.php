@@ -17,11 +17,12 @@ $procedimento->retornaTudo($procedimento);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat+Alternates">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/tabela.css">
+    <link rel="stylesheet" type="text/css" href="../css/tabela2.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Pesquisar Paciente</title>
+    <title>Pesquisar Controle Clinico</title>
     <script src="../js/jquery-3.2.1.js"></script>
     <script src="../js/login.js"></script>
         
@@ -53,36 +54,40 @@ $procedimento->retornaTudo($procedimento);
 
 <div class="centro">
     <div class="conteudo">
-      <table>
-        <thead>
-          <tr class="titulo-table">
-            <th class="column1">Id</th>
-            <th class="column2">Numero do Dente</th>
-            <th class="column3">Procedimento</th>
-            <th class="column4">Importancia</th>
-            <th class="column5">Quantidade</th>
-            <th class="column6">Valor</th>
-            <th class="column7">Ação</th>
-          </tr>
-        </thead>
-        <tbody>
+
+        <div class="row titulo-boot">
+            <div class="form-group col-sm-4">
+                Paciente
+            </div>
+
+            <div class="form-group col-sm-4">
+                Valor
+            </div>
+
+            <div class="form-group col-sm-4">
+                Ação
+            </div>
+        </div>
+    
             <?php while ($dado = $procedimento->retornaDados("object")){ ?>
-          <tr class="tabela">
-            <td><?php echo $dado->IDDENTE ?></td>
-            <td class="up"><?php echo $dado->NUMERO_DENTE ?></td>
-            <td class="up"><?php echo $dado->PROCEDIMENTO ?></td>
-            <td class="up"><?php echo $dado->IMPORTANCIA ?></td>
-            <td class="up"><?php echo $dado->QUANTIDADE ?></td>
-            <td class="up"><?php echo $dado->VALOR ?></td>
-            <td class="column6"><a href="<?php echo $dado->IDDENTE;?>">Editar</a> 
-                <a href="" id="separador">|</a>
-                <a href="javascript: if(confirm('TEM CERTEZA AO DELETAR O PROCEDIMENTO: <?php echo $dado->PROCEDIMENTO; ?> ?')) 
-                    location.href='ExcluirControleClinico.php?IdDente=<?php echo $dado->IDDENTE;?>';">Excluir</a>
-                </td>
-          </tr> 
-          </tbody>
-         <?php } ?>
-    </table>
+            <!--<td class="up column1"><?php echo $dado->IDDENTE ?></td>
+            <td class="up column2"><?php echo $dado->VALOR ?></td>
+            <td class="column3"><a href="<?php echo $dado->IDDENTE;?>">Ver Procedimento</a> 
+                </td>-->
+                <div class="row tupla">
+                    <div class="form-group col-sm-4">
+                        <?php echo $dado->IDDENTE ?>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <?php echo $dado->VALOR ?>
+                    </div>
+
+                    <div class="form-group col-sm-4">
+                        <a href="<?php echo $dado->IDDENTE;?>">Ver Procedimento</a>
+                    </div>
+                </div>
+            <?php } ?>
   </div>
 </div>
 
