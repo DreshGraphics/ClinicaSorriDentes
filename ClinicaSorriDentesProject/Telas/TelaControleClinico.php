@@ -7,6 +7,11 @@ if(isset($_SESSION["TIPOUSUARIO"])){
     $tipo_user = $_SESSION["TIPOUSUARIO"];
 }
 
+$metodo = $_GET;
+if(isset($metodo["Nomepaciente"])){
+    $nomePaciente = $metodo["Nomepaciente"];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +61,7 @@ if(isset($_SESSION["TIPOUSUARIO"])){
                     </li>
                     <li><a href="#">Consulta</a>
                         <ul>
-                            <li><a href="../Telas/TelaControleClinico.php">Controle Clinico</a></li>
+                            <li><a href="../Telas/TelaListaPacienteTable.php">Controle Clinico</a></li>
                         </ul>
                     </li>
                     <li><a href="../Login/Sair.php">Sair</a></li>
@@ -67,6 +72,9 @@ if(isset($_SESSION["TIPOUSUARIO"])){
         <div class="container mid">
             <div class="row col-md-12">
                 <h2 class="titulo-h2">Controle Clinico</h2>
+                
+                <h4>Paciente: <?php echo $nomePaciente; ?> </h4>
+                
             </div>
 
             <form method="POST" action="../Consulta/salvarControleClinico.php">

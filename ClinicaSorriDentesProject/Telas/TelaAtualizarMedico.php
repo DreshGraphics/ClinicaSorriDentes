@@ -70,7 +70,7 @@ $dado = $medico->retornaDados("object");
             </li>
             <li><a href="#">Consulta</a>
             <ul>
-                <li><a href="../Telas/TelaControleClinico.php">Controle Clinico</a></li>
+                <li><a href="../Telas/TelaListaPacienteTable.php">Controle Clinico</a></li>
             </ul>
             </li>
             <li><a href="../Login/Sair.php">Sair</a></li>

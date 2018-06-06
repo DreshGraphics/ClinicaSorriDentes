@@ -1,6 +1,11 @@
 <?php
+/**
+ * Description of Paciente
+ *
+ * @author Felipe
+ */
 session_start();
-require_once '../Medico/Medico.php';
+require_once '../Paciente/Paciente.php';
 
 include_once '../Login/ProtectPaginas.php';
 protect();
@@ -9,9 +14,8 @@ if(isset($_SESSION["tipoUsuario"])){
     $tipo_user = $_SESSION["tipoUsuario"];
 }
 
-
-$medico = new Medico();
-$medico->retornaTudo($medico);
+$paciente = new Paciente();
+$paciente->retornaTudo($paciente);
 
 ?>
 <html lang="pt-br">
@@ -24,11 +28,11 @@ $medico->retornaTudo($medico);
     <link href="https://fonts.googleapis.com/css?family=Raleway:600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Pesquisar Profissional</title>
+    <title>Pesquisar Paciente</title>
     <script src="../js/jquery-3.2.1.js"></script>
     <script src="../js/login.js"></script>
     
-    <script type="text/javascript">
+      <script type="text/javascript">
             
             $(document).ready(function(){
               
@@ -72,33 +76,22 @@ $medico->retornaTudo($medico);
     <div class="conteudo">
       <table>
         <thead>
-          <tr class="titulo-table">
-            <th class="column1">Id</th>
-            <th class="column2">Nome</th>
-            <th class="column3">Conselho</th>
-            <th class="column4">Especialidade</th>
-            <th class="column5">Telefone</th>
-            <th class="column6">Ação</th>
-     
+          <tr class="titulo-table">         
+            <th class="column8">Nome</th>
+            <th class="column2">Ação</th> 
           </tr>
         </thead>
         <tbody>
-             <?php while ($dado = $medico -> retornaDados("object")){ ?>
-        <tr class="tabela">
-            <td> <?php echo $dado->IDMEDICO ?> </td>
-            <td class="up"> <?php echo $dado->NOME ?> </td>
-            <td class="up"> <?php echo $dado->CONSELHO ?> </td>        
-            <td class="up"> <?php echo $dado->ESPECIALIDADE ?> </td>
-            <td> <?php echo $dado->TELEFONE ?> </td>
-            <td><a href="../Telas/TelaAtualizarMedico.php?medico=<?php echo $dado->IDMEDICO?>">Editar</a> 
-                <a href="" id="separador">|</a>
-                <a href="javascript: if(confirm('Tem certeza que quer deletar o usuário <?php echo $dado->NOME; ?> ?')) 
-                    location.href='RemoverMedico.php?medico=<?php echo $dado->IDMEDICO  ?>';">Excluir</a>
-            </td>
-        </tr>
-        </tbody>
-            <?php } ?>          
-        </table>
+            <?php while ($dado = $paciente->retornaDados("object")){ ?>
+          <tr class="tabela">
+            <td class="up"><?php echo $dado->NOME ?></td>
+            <td class="column6"><a href="../Telas/TelaControleClinico.php?Nomepaciente=<?php echo $dado->NOME;?>">Cadastrar Procedimento</a> 
+                <a href="" id="separador"></a>
+                </td>
+          </tr> 
+          </tbody>
+         <?php } ?>
+    </table>
   </div>
 </div>
 
@@ -106,8 +99,3 @@ $medico->retornaTudo($medico);
         <h1>Copyright &copy 2018 - Fábrica de Software</h1>
     </footer>
 </html>
-
-
-        
-
-
