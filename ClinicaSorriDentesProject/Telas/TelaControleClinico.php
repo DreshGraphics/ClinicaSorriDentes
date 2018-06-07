@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once '../Login/ProtectPaginas.php';
+include_once '../Paciente/Paciente.php';
 protect();
 
 if(isset($_SESSION["TIPOUSUARIO"])){
@@ -8,9 +9,18 @@ if(isset($_SESSION["TIPOUSUARIO"])){
 }
 
 $metodo = $_GET;
-if(isset($metodo["Nomepaciente"])){
-    $nomePaciente = $metodo["Nomepaciente"];
+if(isset($metodo["IDpaciente"])){
+    $idPaciente = $metodo["IDpaciente"];
 }
+
+$paciente = new Paciente();
+$paciente->valorpk = $idPaciente;
+
+$resultado = $paciente->pesquisarID($paciente);
+$dados = mysqli_fetch_array($resultado);
+
+
+$nomePaciente = $dados["NOME"];
 
 ?>
 
@@ -77,7 +87,7 @@ if(isset($metodo["Nomepaciente"])){
                 
             </div>
 
-            <form method="POST" action="../Consulta/salvarControleClinico.php">
+            <form method="POST" action="../Consulta/salvarControleClinico.php?IDpaciente=<?php echo $idPaciente ?>">
 
                 <div id="linhas-container">
                     <div class="linha-campos">

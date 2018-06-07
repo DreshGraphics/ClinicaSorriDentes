@@ -11,7 +11,8 @@ class ProcedimentoDente extends baseBD {
                 "NUMERO_DENTE" => NULL,
                 "PROCEDIMENTO" => NULL, 
                 "IMPORTANCIA" => NULL,
-                "VALOR" => NULL
+                "VALOR" => NULL,
+                "ID_PACIENTE"=>NULL
             );
         } else {
             $this->campos_valores = $campos;

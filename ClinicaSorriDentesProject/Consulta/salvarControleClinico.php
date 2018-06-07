@@ -12,7 +12,9 @@ if(isset($metodo["procedimento"])){
     $importancia = $metodo["importancia"];
     $quantidade = $metodo["quant"];
     $valor = $metodo["valor_unit"];
-     
+    
+    $idPaciente = $_GET["IDpaciente"];
+    
     for( $i=0; $i<count($metodo['procedimento']); $i++ ){
             
         //$resultado = $dente->Salvar($procedimento[$i], $importancia[$i],$valor[$i]);
@@ -23,11 +25,13 @@ if(isset($metodo["procedimento"])){
         $dente->setValor("IMPORTANCIA", $importancia[$i]);
         $dente->setValor("QUANTIDADE", $quantidade[$i]);
         $dente->setValor("VALOR", $valor[$i]);
+        $dente->setValor("ID_PACIENTE", $idPaciente);
         $resultado = $dente->inserir($dente);       
     }
     
+    
     if($resultado){
-        echo "<script>alert('Dados de Processo salvo com Sucesso!');window.location = '../Telas/TelaControleClinico.php';</script>";
+        echo "<script>alert('Dados de Processo salvo com Sucesso!');window.location = '../Telas/TelaListaPacienteTable.php';</script>";
     }else{
         echo "<script>alert('Erro ao tentar salvar dados no Banco!');window.location = '../Telas/TelaControleClinico.php';</script>";
     }

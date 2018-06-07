@@ -8,7 +8,6 @@ require_once './ValidaCadastro.php';
 $valida = new ValidaCadastro();
 
 $metodo = $_POST;
-
 //Recuperando valores do campo
 if(isset($metodo["login"])){
 $nome = $metodo["nome"];

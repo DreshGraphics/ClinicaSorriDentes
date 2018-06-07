@@ -85,7 +85,7 @@ $paciente->retornaTudo($paciente);
             <?php while ($dado = $paciente->retornaDados("object")){ ?>
           <tr class="tabela">
             <td class="up"><?php echo $dado->NOME ?></td>
-            <td class="column6"><a href="../Telas/TelaControleClinico.php?Nomepaciente=<?php echo $dado->NOME;?>">Cadastrar Procedimento</a> 
+            <td class="column6"><a href="../Telas/TelaControleClinico.php?IDpaciente=<?php echo $dado->IDPACIENTE;?>">Cadastrar Procedimento</a> 
                 <a href="" id="separador"></a>
                 </td>
           </tr> 
