@@ -13,7 +13,7 @@ if(isset($metodo["procedimento"])){
     $quantidade = $metodo["quant"];
     $valor = $metodo["valor_unit"];
     
-    $idPaciente = $_GET["IDpaciente"];
+    $idPaciente = $_SESSION["idPaciente"];
     
     for( $i=0; $i<count($metodo['procedimento']); $i++ ){
             

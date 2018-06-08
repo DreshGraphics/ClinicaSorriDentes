@@ -11,6 +11,8 @@ if(isset($_SESSION["TIPOUSUARIO"])){
 $metodo = $_GET;
 if(isset($metodo["IDpaciente"])){
     $idPaciente = $metodo["IDpaciente"];
+}else{
+    header('Location:../Telas/TelaListaPacienteTable.php');  
 }
 
 $paciente = new Paciente();
@@ -20,7 +22,8 @@ $resultado = $paciente->pesquisarID($paciente);
 $dados = mysqli_fetch_array($resultado);
 
 
-$nomePaciente = $dados["NOME"];
+$_SESSION["idPaciente"] = $dados["IDPACIENTE"];
+$_SESSION["nomePaciente"] = $dados["NOME"];
 
 ?>
 
@@ -83,11 +86,11 @@ $nomePaciente = $dados["NOME"];
             <div class="row col-md-12">
                 <h2 class="titulo-h2">Controle Clinico</h2>
                 
-                <h4>Paciente: <?php echo $nomePaciente; ?> </h4>
+                <h4>Paciente: <?php echo $_SESSION["nomePaciente"] ?> </h4>
                 
             </div>
 
-            <form method="POST" action="../Consulta/salvarControleClinico.php?IDpaciente=<?php echo $idPaciente ?>">
+            <form method="POST" action="../Consulta/salvarControleClinico.php?IDpaciente=<?php echo $_SESSION["idPaciente"] ?>">
 
                 <div id="linhas-container">
                     <div class="linha-campos">

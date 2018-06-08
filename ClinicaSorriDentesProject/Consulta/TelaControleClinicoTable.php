@@ -6,9 +6,12 @@
  */
 session_start();
 require_once '../Consulta/ProcedimentoDente.php';
+require_once '../Paciente/Paciente.php';
 
 $procedimento = new ProcedimentoDente();
 $procedimento->retornaTudo($procedimento);
+
+$paciente = new Paciente();
 
 ?>
 <html lang="pt-br">
@@ -76,7 +79,14 @@ $procedimento->retornaTudo($procedimento);
                 </td>-->
                 <div class="row tupla">
                     <div class="form-group col-sm-4">
-                        <?php echo $dado->IDDENTE ?>
+                        <?php 
+                           $paciente->valorpk = $dado->ID_PACIENTE;
+        
+                           $resultado = $paciente->pesquisarID($paciente);
+                           $dados = mysqli_fetch_array($resultado);
+                           
+                           echo $nomePaciente = $dados["NOME"];
+                        ?>
                     </div>
 
                     <div class="form-group col-sm-4">
