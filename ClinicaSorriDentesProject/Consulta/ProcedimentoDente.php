@@ -12,6 +12,7 @@ class ProcedimentoDente extends baseBD {
                 "PROCEDIMENTO" => NULL, 
                 "IMPORTANCIA" => NULL,
                 "VALOR" => NULL,
+                "ORCAMENTO_FINAL" => NULL,
                 "ID_PACIENTE"=>NULL
             );
         } else {

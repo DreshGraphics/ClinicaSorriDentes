@@ -7,6 +7,7 @@
 session_start();
 require_once '../Consulta/ProcedimentoDente.php';
 require_once '../Paciente/Paciente.php';
+require_once '../Consulta/ProcedimentoDente.php';
 
 $procedimento = new ProcedimentoDente();
 $procedimento->retornaTudo($procedimento);
@@ -95,6 +96,7 @@ $paciente = new Paciente();
 
                     <div class="form-group col-sm-4">
                         <a href="<?php echo $dado->IDDENTE;?>">Ver Procedimento</a>
+                        <a href="../Telas/TelaAtualizarControleClinico.php?idControle=<?php echo $dado->IDDENTE?>">| Editar</a>
                     </div>
                 </div>
             <?php } ?>

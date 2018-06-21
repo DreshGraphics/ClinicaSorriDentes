@@ -12,6 +12,7 @@ if(isset($metodo["procedimento"])){
     $importancia = $metodo["importancia"];
     $quantidade = $metodo["quant"];
     $valor = $metodo["valor_unit"];
+    $orcamentoFinal = $metodo["orçamentoFinal"];
     
     $idPaciente = $_SESSION["idPaciente"];
     
@@ -25,6 +26,7 @@ if(isset($metodo["procedimento"])){
         $dente->setValor("IMPORTANCIA", $importancia[$i]);
         $dente->setValor("QUANTIDADE", $quantidade[$i]);
         $dente->setValor("VALOR", $valor[$i]);
+        $dente->setValor("ORCAMENTO_FINAL", $orcamentoFinal);
         $dente->setValor("ID_PACIENTE", $idPaciente);
         $resultado = $dente->inserir($dente);       
     }
