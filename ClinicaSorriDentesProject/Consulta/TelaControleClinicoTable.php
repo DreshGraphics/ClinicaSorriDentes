@@ -11,6 +11,7 @@ require_once '../Consulta/ProcedimentoDente.php';
 
 $procedimento = new ProcedimentoDente();
 $procedimento->retornaTudo($procedimento);
+//
 
 $paciente = new Paciente();
 
