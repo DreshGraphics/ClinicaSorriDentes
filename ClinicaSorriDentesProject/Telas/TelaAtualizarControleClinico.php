@@ -3,6 +3,7 @@ session_start();
 include_once '../Login/ProtectPaginas.php';
 include_once '../Paciente/Paciente.php';
 include_once '../Consulta/ProcedimentoDente.php';
+require_once '../Consulta/listarTudo.php';
 protect();
 
 if(isset($_SESSION["tipoUsuario"])){
@@ -12,12 +13,15 @@ if(isset($_SESSION["tipoUsuario"])){
 
 $procedimento = new ProcedimentoDente();
 $metodo = $_GET;
-if(isset($metodo["idControle"])){
-    $id = $metodo["idControle"];
+if(isset($metodo["idPaciente"])){
+    $id = $metodo["idPaciente"];
     $procedimento->valorpk = $id;
     $procedimento->pesquisarID($procedimento);
 }
 $dado = $procedimento->retornaDados("object");
+
+$listar = new listarTudo();
+$con = $listar->listarPorIDPaciente($id);
 ?>
 
 <!DOCTYPE html>

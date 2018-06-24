@@ -8,12 +8,15 @@ session_start();
 require_once '../Consulta/ProcedimentoDente.php';
 require_once '../Paciente/Paciente.php';
 require_once '../Consulta/ProcedimentoDente.php';
+require_once '../Consulta/listarTudo.php';
 
 $procedimento = new ProcedimentoDente();
 $procedimento->retornaTudo($procedimento);
-//
 
 $paciente = new Paciente();
+
+$listar = new listarTudo();
+$con = $listar->listar();
 
 ?>
 <html lang="pt-br">
@@ -61,12 +64,16 @@ $paciente = new Paciente();
     <div class="conteudo">
 
         <div class="row titulo-boot">
-            <div class="form-group col-sm-4">
+            <div class="form-group col-sm-3">
                 Paciente
             </div>
 
-            <div class="form-group col-sm-4">
+            <div class="form-group col-sm-2">
                 Valor
+            </div>
+            
+             <div class="form-group col-sm-3">
+                Data
             </div>
 
             <div class="form-group col-sm-4">
@@ -74,15 +81,11 @@ $paciente = new Paciente();
             </div>
         </div>
     
-            <?php while ($dado = $procedimento->retornaDados("object")){ ?>
-            <!--<td class="up column1"><?php echo $dado->IDDENTE ?></td>
-            <td class="up column2"><?php echo $dado->VALOR ?></td>
-            <td class="column3"><a href="<?php echo $dado->IDDENTE;?>">Ver Procedimento</a> 
-                </td>-->
+            <?php while ($dado = $con->fetch_array()){ ?>
                 <div class="row tupla">
-                    <div class="form-group col-sm-4">
+                    <div class="form-group col-sm-3">
                         <?php 
-                           $paciente->valorpk = $dado->ID_PACIENTE;
+                           $paciente->valorpk = $dado["ID_PACIENTE"];
         
                            $resultado = $paciente->pesquisarID($paciente);
                            $dados = mysqli_fetch_array($resultado);
@@ -91,13 +94,17 @@ $paciente = new Paciente();
                         ?>
                     </div>
 
-                    <div class="form-group col-sm-4">
-                        <?php echo $dado->VALOR ?>
+                    <div class="form-group col-sm-2">
+                        <?php echo $dado["ORCAMENTO_FINAL"]; ?>
+                    </div>
+                    
+                    <div class="form-group col-sm-3">
+                        <?php echo date("d/m/Y", strtotime($dado["DATA"])); ?>
                     </div>
 
                     <div class="form-group col-sm-4">
                         <a href="<?php echo $dado->IDDENTE;?>">Ver Procedimento</a>
-                        <a href="../Telas/TelaAtualizarControleClinico.php?idControle=<?php echo $dado->IDDENTE?>">| Editar</a>
+                        <a href="../Telas/TelaAtualizarControleClinico.php?idPaciente=<?php echo $dado["ID_PACIENTE"];?>">| Editar</a>
                     </div>
                 </div>
             <?php } ?>
