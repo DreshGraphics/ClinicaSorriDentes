@@ -13,12 +13,13 @@ if(isset($_SESSION["tipoUsuario"])){
 
 $procedimento = new ProcedimentoDente();
 $metodo = $_GET;
+
 if(isset($metodo["idPaciente"])){
     $id = $metodo["idPaciente"];
     $procedimento->valorpk = $id;
     $procedimento->pesquisarID($procedimento);
 }
-$dado = $procedimento->retornaDados("object");
+$dados = $procedimento->retornaDados("object");
 
 $listar = new listarTudo();
 $con = $listar->listarPorIDPaciente($id);
@@ -89,8 +90,8 @@ $con = $listar->listarPorIDPaciente($id);
                 
             </div>
 
-            <form method="POST" action="../Consulta/atualizarControleClinico.php?IDprocedimento=<?php echo $dado->IDDENTE ?>">
-
+            <form method="POST" action="../Consulta/atualizarControleClinico.php?IDprocedimento=<?php echo $dados->IDDENTE ?>">
+               <?php while ($dado = $con->fetch_array()){ ?>
                 <div id="linhas-container">
                     <div class="linha-campos">
 
@@ -98,49 +99,49 @@ $con = $listar->listarPorIDPaciente($id);
 
                             <div class="form-group col-md-3">
                                 <label for="qtd">Quantidade</label>
-                                <input type="number" value="<?php echo $dado->QUANTIDADE ?>" name="quant" id="qtd">
+                                <input type="number" value="<?php echo $dado["QUANTIDADE"] ?>" name="quant" id="qtd">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="proc">Procedimento</label>
                                 <select name="procedimento" id="procedimento">
-                                    <option value="extração" <?php if($dado->PROCEDIMENTO == "extração") echo 'selected';  ?>>extração</option>
-                                    <option value="obturação amálgama" <?php if($dado->PROCEDIMENTO == "obturação amálgama") echo 'selected';  ?>>obturação amálgama</option>
-                                    <option value="obturaçao luz halogênea" <?php if($dado->PROCEDIMENTO == "obturaçao luz halogênea") echo 'selected';  ?> >obturaçao luz halogênea</option>
-                                    <option value="tratamento canal" <?php if($dado->PROCEDIMENTO == "tratamento canal") echo 'selected';  ?>>tratamento canal</option>
-                                    <option value="limpeza" <?php if($dado->PROCEDIMENTO == "limpeza") echo 'selected';  ?>>limpeza</option>
-                                    <option value="remoção de tártaro" <?php if($dado->PROCEDIMENTO == "remoção de tártaro") echo 'selected';  ?>>remoção de tártaro</option>
-                                    <option value="flúor" <?php if($dado->PROCEDIMENTO == "flúor") echo 'selected';  ?>>flúor</option>
-                                    <option value="pivot" <?php if($dado->PROCEDIMENTO == "pivot") echo 'selected';  ?>>pivot</option>
-                                    <option value="coroa porcelana" <?php if($dado->PROCEDIMENTO == "coroa porcelana") echo 'selected';  ?>>coroa porcelana</option>
-                                    <option value="coroa venne" <?php if($dado->PROCEDIMENTO == "coroa venne") echo 'selected';  ?>>coroa venne</option>
-                                    <option value="cirurgia" <?php if($dado->PROCEDIMENTO == "cirurgia") echo 'selected';  ?>>cirurgia</option>
-                                    <option value="prótese superior" <?php if($dado->PROCEDIMENTO == "prótese superior") echo 'selected';  ?>>prótese superior</option>
-                                    <option value="prótese inferior" <?php if($dado->PROCEDIMENTO == "prótese inferior") echo 'selected';  ?>>prótese inferior</option>
-                                    <option value="radiografia" <?php if($dado->PROCEDIMENTO == "radiografia") echo 'selected';  ?>>radiografia</option>
-                                    <option value="aparelho" <?php if($dado->PROCEDIMENTO == "aparelho") echo 'selected';  ?>>aparelho</option>
-                                    <option value="clareamento c/ moldeiras" <?php if($dado->PROCEDIMENTO == "clareamento c/ moldeiras") echo 'selected';  ?>>clareamento c/ moldeiras</option>
+                                    <option value="extração" <?php if($dado["PROCEDIMENTO"] == "extração") echo 'selected';  ?>>extração</option>
+                                    <option value="obturação amálgama" <?php if($dado["PROCEDIMENTO"] == "obturação amálgama") echo 'selected';  ?>>obturação amálgama</option>
+                                    <option value="obturaçao luz halogênea" <?php if($dado["PROCEDIMENTO"] == "obturaçao luz halogênea") echo 'selected';  ?> >obturaçao luz halogênea</option>
+                                    <option value="tratamento canal" <?php if($dado["PROCEDIMENTO"] == "tratamento canal") echo 'selected';  ?>>tratamento canal</option>
+                                    <option value="limpeza" <?php if($dado["PROCEDIMENTO"] == "limpeza") echo 'selected';  ?>>limpeza</option>
+                                    <option value="remoção de tártaro" <?php if($dado["PROCEDIMENTO"] == "remoção de tártaro") echo 'selected';  ?>>remoção de tártaro</option>
+                                    <option value="flúor" <?php if($dado["PROCEDIMENTO"] == "flúor") echo 'selected';  ?>>flúor</option>
+                                    <option value="pivot" <?php if($dado["PROCEDIMENTO"] == "pivot") echo 'selected';  ?>>pivot</option>
+                                    <option value="coroa porcelana" <?php if($dado["PROCEDIMENTO"] == "coroa porcelana") echo 'selected';  ?>>coroa porcelana</option>
+                                    <option value="coroa venne" <?php if($dado["PROCEDIMENTO"] == "coroa venne") echo 'selected';  ?>>coroa venne</option>
+                                    <option value="cirurgia" <?php if($dado["PROCEDIMENTO"] == "cirurgia") echo 'selected';  ?>>cirurgia</option>
+                                    <option value="prótese superior" <?php if($dado["PROCEDIMENTO"] == "prótese superior") echo 'selected';  ?>>prótese superior</option>
+                                    <option value="prótese inferior" <?php if($dado["PROCEDIMENTO"] == "prótese inferior") echo 'selected';  ?>>prótese inferior</option>
+                                    <option value="radiografia" <?php if($dado["PROCEDIMENTO"] == "radiografia") echo 'selected';  ?>>radiografia</option>
+                                    <option value="aparelho" <?php if($dado["PROCEDIMENTO"] == "aparelho") echo 'selected';  ?>>aparelho</option>
+                                    <option value="clareamento c/ moldeiras" <?php if($dado["PROCEDIMENTO"] == "clareamento c/ moldeiras") echo 'selected';  ?>>clareamento c/ moldeiras</option>
                                 </select>
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label>Número do Dente</label>
-                                <input type="number" value="<?php echo $dado->NUMERO_DENTE ?>" name="numDente">
+                                <input type="number" value="<?php echo $dado["NUMERO_DENTE"] ?>" name="numDente">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="proc">Importância</label>
                                 <select name="importancia" id="importancia">
-                                    <option value="BAIXA IMPORTANCIA" <?php if($dado->IMPORTANCIA == "BAIXA IMPORTANCIA") echo 'selected';  ?>>BAIXA IMPORTANCIA</option>
-                                    <option value="MEDIA IMPORTANCIA" <?php if($dado->IMPORTANCIA == "MEDIA IMPORTANCIA") echo 'selected';  ?>>MEDIA IMPORTANCIA</option>
-                                    <option value="ALTA IMPORTANCIA" <?php if($dado->IMPORTANCIA == "ALTA IMPORTANCIA") echo 'selected';  ?>>ALTA IMPORTANCIA</option>
+                                    <option value="BAIXA IMPORTANCIA" <?php if($dado["IMPORTANCIA"] == "BAIXA IMPORTANCIA") echo 'selected';  ?>>BAIXA IMPORTANCIA</option>
+                                    <option value="MEDIA IMPORTANCIA" <?php if($dado["IMPORTANCIA"] == "MEDIA IMPORTANCIA") echo 'selected';  ?>>MEDIA IMPORTANCIA</option>
+                                    <option value="ALTA IMPORTANCIA" <?php if($dado["IMPORTANCIA"] == "ALTA IMPORTANCIA") echo 'selected';  ?>>ALTA IMPORTANCIA</option>
 
                                 </select>
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label>Valor Unitário</label>
-                                <input type="number" value="<?php echo $dado->VALOR ?>" name="valor_unit">
+                                <input type="number" value="<?php echo $dado["VALOR"]; ?>" name="valor_unit">
                             </div>
 
                             <div class="form-group col-md-3">
@@ -152,10 +153,10 @@ $con = $listar->listarPorIDPaciente($id);
                         </div>
                     </div>
                 </div>
-
+                
+                     <?php } ?>
                 <div id="container-total">
                     <div class="row">
-
                         <div class="form-group col-md-3">
                             <label>Valor Total</label>
                             <input type="number" value="0" name="valor_total" readonly="readonly">
@@ -163,9 +164,8 @@ $con = $listar->listarPorIDPaciente($id);
 
                         <div class="form-group col-sm-3">
                             <label>Orçamento Final</label>
-                            <input type="text" value="<?php echo $dado->ORCAMENTO_FINAL ?>" name="orçamentoFinal" id="orçamentoFinal">
+                            <input type="text" value="<?php ?>" name="orçamentoFinal" id="orçamentoFinal">
                         </div>
-
                     </div>
 
                     <button class="bt-salvar">Salvar</button>
