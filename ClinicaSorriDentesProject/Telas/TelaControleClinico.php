@@ -4,15 +4,15 @@ include_once '../Login/ProtectPaginas.php';
 include_once '../Paciente/Paciente.php';
 protect();
 
-if(isset($_SESSION["TIPOUSUARIO"])){
+if (isset($_SESSION["TIPOUSUARIO"])) {
     $tipo_user = $_SESSION["TIPOUSUARIO"];
 }
 
 $metodo = $_GET;
-if(isset($metodo["IDpaciente"])){
+if (isset($metodo["IDpaciente"])) {
     $idPaciente = $metodo["IDpaciente"];
-}else{
-    header('Location:../Telas/TelaListaPacienteTable.php');  
+} else {
+    header('Location:../Telas/TelaListaPacienteTable.php');
 }
 
 $paciente = new Paciente();
@@ -24,7 +24,6 @@ $dados = mysqli_fetch_array($resultado);
 
 $_SESSION["idPaciente"] = $dados["IDPACIENTE"];
 $_SESSION["nomePaciente"] = $dados["NOME"];
-
 ?>
 
 <!DOCTYPE html>
@@ -41,19 +40,19 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
         <link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="../js/jquery-3.2.1.js"></script>
-        
+
         <script type="text/javascript">
-            
-            $(document).ready(function(){
-              
-              var tipo_user = "<?php echo $tipo_user ?>";
-              
-              if(tipo_user != "Administrador"){
-                   document.getElementById("opcaoUser").style.display = "none";
-              }
-                               
+
+            $(document).ready(function () {
+
+                var tipo_user = "<?php echo $tipo_user ?>";
+
+                if (tipo_user != "Administrador") {
+                    document.getElementById("opcaoUser").style.display = "none";
+                }
+
             });
-        
+
         </script>
 
     </head>
@@ -85,9 +84,9 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
         <div class="container mid">
             <div class="row col-md-12">
                 <h2 class="titulo-h2">Controle Clinico</h2>
-                
+
                 <h4>Paciente: <?php echo $_SESSION["nomePaciente"] ?> </h4>
-                
+
             </div>
 
             <form method="POST" action="../Consulta/salvarControleClinico.php?IDpaciente=<?php echo $_SESSION["idPaciente"] ?>">
@@ -183,7 +182,6 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
     </footer>
 
 </body>
-</html>
 <script type="text/javascript">
     var linhasCont = document.querySelector('#linhas-container');
     var totalCont = document.querySelector('#container-total');
@@ -245,3 +243,5 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
         totalCont.querySelector('input[name=valor_total]').value = total;
     }
 </script>
+</html>
+

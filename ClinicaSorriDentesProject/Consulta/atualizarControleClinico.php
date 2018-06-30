@@ -1,18 +1,19 @@
 <?php
+
 session_start();
 require_once '../BancoDeDados/Conexao_Banco_ClinicaSorridentes.php.inc';
 require_once '../util/daoGenerico.php';
 require_once '../Consulta/ProcedimentoDente.php';
-include_once '../Login/ProtectPaginas.php';
-protect();
+require_once '../Consulta/listarTudo.php';
 
 $metodo2 = $_GET;
-if (isset($metodo2["IDprocedimento"])) {
-    $id = $metodo2["IDprocedimento"];
-}
+$metodo2["IDPaciente"];
+$idPaciente = $metodo2["IDPaciente"];
+
+$listar = new listarTudo();
+$con = $listar->listarPorIDPaciente($idPaciente);
 
 $metodo = $_POST;
-
 if(isset($metodo["procedimento"])){
     $procedimento = $metodo["procedimento"];
     $Numdente = $metodo["numDente"];
@@ -23,21 +24,30 @@ if(isset($metodo["procedimento"])){
     
     $idPaciente = $_SESSION["idPaciente"];
     
-    $dente = new ProcedimentoDente();
-    $dente->setValor("PROCEDIMENTO", $procedimento);
-    $dente->setValor("NUMERO_DENTE", $Numdente);
-    $dente->setValor("IMPORTANCIA", $importancia);
-    $dente->setValor("QUANTIDADE", $quantidade);
-    $dente->setValor("VALOR", $valor);
-    $dente->setValor("ORCAMENTO_FINAL", $orcamentoFinal);
-    $dente->setValor("ID_PACIENTE", $idPaciente);
+    
+    $i=0;
+    
+    while($dado = $con->fetch_array()){
+            
+        $dente = new ProcedimentoDente();
+        $dente->setValor("PROCEDIMENTO", $procedimento[$i]);
+        $dente->setValor("NUMERO_DENTE", $Numdente[$i]);
+        $dente->setValor("IMPORTANCIA", $importancia[$i]);
+        $dente->setValor("QUANTIDADE", $quantidade[$i]);
+        $dente->setValor("VALOR", $valor[$i]);
+        $dente->setValor("ORCAMENTO_FINAL", $orcamentoFinal);
+        $dente->setValor("ID_PACIENTE", $idPaciente);
+                    
+       $dente->valorpk = $dado["IDDENTE"];
+       echo $dado["IDDENTE"];
+       $resultado = $dente->atualizar($dente);
+       
+        $i = $i+1;           
+    }
     
     
-    $dente->valorpk = $id;
-    
-
-    if($dente->atualizar($dente)){
-        echo "<script>alert('Dados de Processo atualizado com Sucesso!');window.location = '../Telas/TelaListaPacienteTable.php';</script>";
+    if($resultado){
+        echo "<script>alert('Dados de Processo atualizados com Sucesso!');window.location = '../Telas/TelaListaPacienteTable.php';</script>";
     }else{
         echo "<script>alert('Erro ao tentar atualizar dados no Banco!');window.location = '../Telas/TelaControleClinico.php';</script>";
     }

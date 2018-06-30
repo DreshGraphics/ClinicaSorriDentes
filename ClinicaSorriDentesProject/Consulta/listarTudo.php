@@ -25,4 +25,15 @@ class listarTudo extends ConexaoDB {
 
         return $resultado;    
     }
+    
+    public function listarIDS($chave){
+        
+        $dao = new daoGenerico();
+        
+	$sql = "SELECT IDDENTE FROM `procedimento_dentes` WHERE ID_PACIENTE=".$chave.";";
+        
+        $resultado = mysqli_query($this->conexao, $sql);
+
+        return $resultado;    
+    }
 }
