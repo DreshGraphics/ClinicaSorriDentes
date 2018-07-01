@@ -39,7 +39,7 @@ if(isset($metodo["procedimento"])){
         $dente->setValor("ID_PACIENTE", $idPaciente);
                     
        $dente->valorpk = $dado["IDDENTE"];
-       echo $dado["IDDENTE"];
+       
        $resultado = $dente->atualizar($dente);
        
         $i = $i+1;           
