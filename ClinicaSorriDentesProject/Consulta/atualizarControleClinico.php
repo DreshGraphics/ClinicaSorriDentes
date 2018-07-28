@@ -12,63 +12,63 @@ $idPaciente = $metodo2["IDPaciente"];
 
 $listar = new listarTudo();
 $con = $listar->listarPorIDPaciente($idPaciente);
+$contadorBD = $listar->contadorLinhas($idPaciente);
 
 $metodo = $_POST;
+
+ $contadorLinhasForm = count($metodo['procedimento']);
+
 if(isset($metodo["procedimento"])){
-    echo $procedimento = $metodo["procedimento"];
-    echo $Numdente = $metodo["numDente"];
-    echo $importancia = $metodo["importancia"];
-    echo $quantidade = $metodo["quant"];
-    echo $valor = $metodo["valor_unit"];
-    echo $orcamentoFinal = $metodo["orçamentoFinal"];
+     $procedimento = $metodo["procedimento"];
+     $Numdente = $metodo["numDente"];
+     $importancia = $metodo["importancia"];
+     $quantidade = $metodo["quant"];
+     $valor = $metodo["valor_unit"];
+     $orcamentoFinal = $metodo["orçamentoFinal"];
+     
+     
+    for( $i=0; $i<$dado = $con->fetch_array(); $i++ ){
+            $dente = new ProcedimentoDente();
+            $dente->setValor("PROCEDIMENTO", $procedimento[$i]);
+            $dente->setValor("NUMERO_DENTE", $Numdente[$i]);
+            $dente->setValor("IMPORTANCIA", $importancia[$i]);
+            $dente->setValor("QUANTIDADE", $quantidade[$i]);
+            $dente->setValor("VALOR", $valor[$i]);
+            $dente->setValor("ORCAMENTO_FINAL", $orcamentoFinal);
+            $dente->setValor("ID_PACIENTE", $idPaciente);
+          
+           $dente->valorpk = $dado["IDDENTE"];
+           $atualizar = $dente->atualizar($dente);  
+    }
     
+    if ($contadorLinhasForm > $contadorBD){
+        for( $i=$contadorBD; $i<count($metodo['procedimento']); $i++ ){
+            $dente = new ProcedimentoDente();
+            $dente->setValor("PROCEDIMENTO", $procedimento[$i]);
+            $dente->setValor("NUMERO_DENTE", $Numdente[$i]);
+            $dente->setValor("IMPORTANCIA", $importancia[$i]);
+            $dente->setValor("QUANTIDADE", $quantidade[$i]);
+            $dente->setValor("VALOR", $valor[$i]);
+            $dente->setValor("ORCAMENTO_FINAL", $orcamentoFinal);
+            $dente->setValor("ID_PACIENTE", $idPaciente);
+            
+            $Salvar = $dente->inserir($dente); 
+        }
+    }
     
+    if ($atualizar || $Salvar){
+         echo "
+		<script>
+			alert('Processo realizado com Sucesso!')
+			location.href='../Consulta/TelaControleClinicoTable.php';
+		</script>";
+    }else{
+        echo "
+		<script>
+			alert('Erro ao tentar realizar operações no Sistema!!!')
+			location.href='../Consulta/TelaControleClinicoTable.php';
+		</script>";
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-//    $idPaciente = $_SESSION["idPaciente"];
-//       
-//    $i=0;
-//    
-//    while($dado = $con->fetch_array()){
-//            
-//        $dente = new ProcedimentoDente();
-//        $dente->setValor("PROCEDIMENTO", $procedimento[$i]);
-//        $dente->setValor("NUMERO_DENTE", $Numdente[$i]);
-//        $dente->setValor("IMPORTANCIA", $importancia[$i]);
-//        $dente->setValor("QUANTIDADE", $quantidade[$i]);
-//        $dente->setValor("VALOR", $valor[$i]);
-//        $dente->setValor("ORCAMENTO_FINAL", $orcamentoFinal);
-//        $dente->setValor("ID_PACIENTE", $idPaciente);
-//                    
-//       $dente->valorpk = $dado["IDDENTE"];
-//       $resultado = $dente->atualizar($dente);
-//       
-//        $i = $i+1;           
-//    }
-//    
-//    
-//    if($resultado){
-//        echo "<script>alert('Dados de Processo atualizados com Sucesso!');window.location = '../Telas/TelaListaPacienteTable.php';</script>";
-//    }else{
-//        echo "<script>alert('Erro ao tentar atualizar dados no Banco!');window.location = '../Telas/TelaControleClinico.php';</script>";
-//    }
 }
+

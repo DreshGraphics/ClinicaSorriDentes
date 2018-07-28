@@ -36,4 +36,21 @@ class listarTudo extends ConexaoDB {
 
         return $resultado;    
     }
+    
+    public function contadorLinhas($chave){
+        
+        $dao = new daoGenerico();
+        
+	$sql = "SELECT IDDENTE FROM `procedimento_dentes` WHERE ID_PACIENTE=".$chave.";";
+        
+        $resultado = mysqli_query($this->conexao, $sql);
+        
+        $contator = mysqli_num_rows($resultado);
+        
+        return $contator;
+ 
+    }
+    
+    
+    
 }
