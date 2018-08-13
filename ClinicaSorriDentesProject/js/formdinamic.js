@@ -21,13 +21,12 @@ $(document).ready(function() {
   });
   
 
-//  $(wrapper).on("click", "#removerDiv", function(e) { //user click on remove text
-//    e.preventDefault();
-//    $('#divremove').remove();
-//    x--;
-//  });
- 
-   
+  $(wrapper).on("click", "#removerDiv", function(e) { //user click on remove text
+    e.preventDefault();
+    $('#divremove').remove();
+    x--;
+  });
+  
 });
 
 
