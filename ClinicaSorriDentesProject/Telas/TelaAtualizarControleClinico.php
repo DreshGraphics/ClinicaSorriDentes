@@ -145,7 +145,7 @@ $con = $listar->listarPorIDPaciente($id);
 
                             <div class="row">
                                 <div class="form-group col-sm-3">
-                                    <button type="button" class="bt-remover" id="removerDiv">Remover</button>
+                                    <button type="button" class="bt-remover" id="<?php echo $dado["IDDENTE"]; ?>">Remover</button>
                                 </div>
                             </div>
 
@@ -213,14 +213,38 @@ $con = $listar->listarPorIDPaciente($id);
         });
 
         //removendo os campos
-        $(document).on('click', '#removerDiv', function () {
+        $(document).on('click', '.bt-remover', function () {
             $(this).parents('#linhas-container').remove();
-            
+
             calcular();
 
             return false;
         });
 
+        Ids = new Array();
+
+        //Pegar o id do botção clicado para remover
+        $('.bt-remover').click(function () {
+
+            var id = $(this).attr('id');
+
+            Ids.push(id);
+
+        });
+
+        //Recuperar os Ids e mandar para o arquivo do php
+        $('.bt-salvar').click(function () {
+            
+            
+                  $.ajax({
+                    type: "POST",
+                    url: "../Consulta/atualizarControleClinico.php",
+                    data: {pegandoIds: Ids},
+                    success: function (data) {
+                        console.log(data);
+                    }
+                  });          
+        });
 
         function calcular() {
             var quantidade = document.getElementsByName('quant[]');
