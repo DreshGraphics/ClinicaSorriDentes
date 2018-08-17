@@ -10,13 +10,20 @@ require_once '../Paciente/Paciente.php';
 require_once '../Consulta/ProcedimentoDente.php';
 require_once '../Consulta/listarTudo.php';
 
+$metodo = $_GET;
+if (isset($metodo["IDpaciente"])) {
+    $idPaciente = $metodo["IDpaciente"];
+} else {
+    header('Location:../Telas/TelaListaPacienteTable.php');
+}
+
 $procedimento = new ProcedimentoDente();
 $procedimento->retornaTudo($procedimento);
 
 $paciente = new Paciente();
 
 $listar = new listarTudo();
-$con = $listar->listar();
+$con = $listar->listarPorIDPacientePorDAta($idPaciente);
 
 ?>
 <html lang="pt-br">

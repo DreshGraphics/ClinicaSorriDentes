@@ -4,7 +4,7 @@ include_once '../BancoDeDados/Conexao_Banco_ClinicaSorridentes.php.inc';
 
 class listarTudo extends ConexaoDB {
     
-    public function listar(){
+    public function listar($chave){
         
         $dao = new daoGenerico();
         
@@ -49,6 +49,17 @@ class listarTudo extends ConexaoDB {
         
         return $contator;
  
+    }
+    
+    public function listarPorIDPacientePorDAta($chave){
+        
+        $dao = new daoGenerico();
+        
+	$sql = "SELECT * FROM `procedimento_dentes` WHERE ID_PACIENTE=".$chave." GROUP BY ID_PACIENTE ORDER BY ORCAMENTO_FINAL ASC";
+        
+        $resultado = mysqli_query($this->conexao, $sql);
+
+        return $resultado;    
     }
     
     

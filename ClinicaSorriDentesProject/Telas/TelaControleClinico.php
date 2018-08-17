@@ -170,7 +170,7 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
 
                     <button class="bt-salvar">Salvar</button>
                     <button id="botao-add" class="bt-buscar">Adicionar</button>
-                    <button type="button" class="bt-buscar"><a href="../Consulta/TelaControleClinicoTable.php">Pesquisar</a></button>
+                    <button type="button" class="bt-buscar"><a href="../Consulta/TelaControleClinicoTable.php?IDpaciente=<?php echo $_SESSION["idPaciente"] ?>">Pesquisar</a></button>
 
                 </div>
             </form>
