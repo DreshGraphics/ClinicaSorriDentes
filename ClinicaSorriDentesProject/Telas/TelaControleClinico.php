@@ -97,11 +97,6 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
                         <div class="row">
 
                             <div class="form-group col-md-3">
-                                <label for="qtd">Quantidade</label>
-                                <input type="number" value="0" name="quant[]" id="qtd">
-                            </div>
-
-                            <div class="form-group col-md-3">
                                 <label for="proc">Procedimento</label>
                                 <select name="procedimento[]" id="procedimento">
                                     <option>extração</option>
@@ -142,16 +137,18 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
                                 <label>Valor Unitário</label>
                                 <input type="number" value="0" name="valor_unit[]">
                             </div>
-
-                            <div class="form-group col-md-3">
-                                <label>Total Individual</label>
-                                <input type="number" value="0" name="total[]" readonly="readonly">
-
-                            </div>
-
+                            
                         </div>
+                        
+                         <div class="row">
+                                <div class="form-group separador col-sm-12">
+                                </div>    
+                            </div> 
+                       
                     </div>
                 </div>
+                
+               
 
                 <div id="container-total">
                     <div class="row">
@@ -199,7 +196,6 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
         var novaLinha = primLinha.cloneNode(true);
 
         novaLinha.querySelector('input[name="valor_unit[]"]').value = 0;
-        novaLinha.querySelector('input[name="quant[]"]').value = 0;
 
         var botDeletar = document.createElement('button');
         $(botDeletar).addClass("bt-remover");
@@ -231,13 +227,8 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
         for (var i = 0; i < linhas.length; i++) {
             var linha = linhas[i];
             var valorUnit = parseFloat(linha.querySelector('input[name="valor_unit[]"]').value);
-            var qtd = parseFloat(linha.querySelector('input[name="quant[]"]').value);
 
-            var totalProd = qtd * valorUnit;
-
-            linha.querySelector('input[name="total[]"]').value = totalProd;
-
-            total += totalProd;
+            total += valorUnit;
         }
 
         totalCont.querySelector('input[name=valor_total]').value = total;

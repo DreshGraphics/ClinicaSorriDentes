@@ -37,7 +37,6 @@ if (isset($metodo["procedimento"])) {
     $procedimento = $metodo["procedimento"];
     $Numdente = $metodo["numDente"];
     $importancia = $metodo["importancia"];
-    $quantidade = $metodo["quant"];
     $valor = $metodo["valor_unit"];
     $orcamentoFinal = $metodo["orçamentoFinal"];
                  
@@ -47,7 +46,6 @@ if (isset($metodo["procedimento"])) {
             $dente->setValor("PROCEDIMENTO", $procedimento[$i]);
             $dente->setValor("NUMERO_DENTE", $Numdente[$i]);
             $dente->setValor("IMPORTANCIA", $importancia[$i]);
-            $dente->setValor("QUANTIDADE", $quantidade[$i]);
             $dente->setValor("VALOR", $valor[$i]);
             $dente->setValor("ORCAMENTO_FINAL", $orcamentoFinal);
             $dente->setValor("ID_PACIENTE", $idPaciente);
@@ -63,7 +61,6 @@ if (isset($metodo["procedimento"])) {
                 $dente->setValor("PROCEDIMENTO", $procedimento[$i]);
                 $dente->setValor("NUMERO_DENTE", $Numdente[$i]);
                 $dente->setValor("IMPORTANCIA", $importancia[$i]);
-                $dente->setValor("QUANTIDADE", $quantidade[$i]);
                 $dente->setValor("VALOR", $valor[$i]);
                 $dente->setValor("ORCAMENTO_FINAL", $orcamentoFinal);
                 $dente->setValor("ID_PACIENTE", $idPaciente);

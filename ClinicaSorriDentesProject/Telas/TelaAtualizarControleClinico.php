@@ -90,10 +90,6 @@ $con = $listar->listarPorIDPaciente($id);
                     <div id="linhas-container">
                         <div class="linha-campos"> 
                             <div class="row">
-                                <div class="form-group col-md-3">
-                                    <label for="qtd">Quantidade</label>
-                                    <input type="number" value="<?php echo $dado["QUANTIDADE"] ?>" name="quant[]" id="qtd" onkeyup="calcular();"/>
-                                </div>
 
                                 <div class="form-group col-md-3">
                                     <label for="proc">Procedimento</label>
@@ -135,11 +131,6 @@ $con = $listar->listarPorIDPaciente($id);
                                 <div class="form-group col-md-3">
                                     <label>Valor Unitário</label>
                                     <input type="number" value="<?php echo $dado["VALOR"]; ?>" name="valor_unit[]" onkeyup="calcular();"/>
-                                </div>
-
-                                <div class="form-group col-md-3">
-                                    <label>Total Individual</label>
-                                    <input type="number" name="total[]" readonly="readonly">
                                 </div>
                             </div>
 
@@ -203,7 +194,7 @@ $con = $listar->listarPorIDPaciente($id);
 
             if (x < max_fields) {
                 x++; //text box increment
-                $(wrapper).append('<div id="linhas-container"><div class="linha-campos"><div class="row"><div class="form-group col-md-3"><label for="qtd">Quantidade</label><input type="number" value="0" name="quant[]" id="qtd" onkeyup="calcular();"></div><div class="form-group col-md-3"><label for="proc">Procedimento</label><select name="procedimento[]" id="procedimento"><option>extração</option><option>obturação amálgama</option><option>obturaçao luz halogênea</option><option>tratamento canal</option><option>limpeza</option><option>remoção de tártaro</option><option>flúor</option><option>pivot</option><option>coroa porcelana</option><option>coroa venne</option><option>cirurgia</option><option>prótese superior</option><option>prótese inferior</option><option>radiografia</option><option>aparelho</option><option>clareamento c/ moldeiras</option></select></div><div class="form-group col-md-3"><label>Número do Dente</label><input type="number" name="numDente[]"></div><div class="form-group col-md-3"><label for="proc">Importância</label><select name="importancia[]" id="importancia"><option>BAIXA IMPORTANCIA</option><option>MEDIA IMPORTANCIA</option><option>ALTA IMPORTANCIA</option></select></div><div class="form-group col-md-3"><label>Valor Unitário</label><input type="number" value="0" name="valor_unit[]" onkeyup="calcular();"></div><div class="form-group col-md-3"><label>Total Individual</label><input type="number" value="0" name="total[]" readonly="readonly"></div></div><div class="row"><div class="form-group col-sm-3"><button type="button" class="bt-remover" id="removerDiv">Remover</button></div></div><div class="row"><div class="form-group separador col-sm-12"></div></div></div></div>');
+                $(wrapper).append('<div id="linhas-container"><div class="linha-campos"><div class="row"><div class="form-group col-md-3"><label for="proc">Procedimento</label><select name="procedimento[]" id="procedimento"><option>extração</option><option>obturação amálgama</option><option>obturaçao luz halogênea</option><option>tratamento canal</option><option>limpeza</option><option>remoção de tártaro</option><option>flúor</option><option>pivot</option><option>coroa porcelana</option><option>coroa venne</option><option>cirurgia</option><option>prótese superior</option><option>prótese inferior</option><option>radiografia</option><option>aparelho</option><option>clareamento c/ moldeiras</option></select></div><div class="form-group col-md-3"><label>Número do Dente</label><input type="number" name="numDente[]"></div><div class="form-group col-md-3"><label for="proc">Importância</label><select name="importancia[]" id="importancia"><option>BAIXA IMPORTANCIA</option><option>MEDIA IMPORTANCIA</option><option>ALTA IMPORTANCIA</option></select></div><div class="form-group col-md-3"><label>Valor Unitário</label><input type="number" value="0" name="valor_unit[]" onkeyup="calcular();"></div></div><div class="row"><div class="form-group col-sm-3"><button type="button" class="bt-remover" id="removerDiv">Remover</button></div></div><div class="row"><div class="form-group separador col-sm-12"></div></div></div></div>');
 
             }
             //Fazendo com que cada uma escreva seu name
@@ -247,17 +238,15 @@ $con = $listar->listarPorIDPaciente($id);
         });
 
         function calcular() {
-            var quantidade = document.getElementsByName('quant[]');
             var valor = document.getElementsByName('valor_unit[]');
             var total = 0;
 
-            for (i = 0; i < quantidade.length; i++) {
+            for (i = 0; i < valor.length; i++) {
 
-                var quant = parseFloat(quantidade[i].value);
+
                 var valorUnit = parseFloat(valor[i].value);
-                var totalIndividual = document.getElementsByName("total[]")[i].value = quant * valorUnit;
-                jQuery(totalIndividual);
-                total += totalIndividual;
+                
+                total += valorUnit;
 
             }
 
