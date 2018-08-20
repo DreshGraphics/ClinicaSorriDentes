@@ -19,6 +19,7 @@ if(isset($metodo2["nome"])){
     $telefone = $metodo2["telefone"];
     $email = $metodo2["email"];
     $dtanascimento = $metodo2["dtanascimento"];
+    $dtanascimento = date("Y-m-d", strtotime(str_replace('/', '-', $dtanascimento)));
     $conselho = $metodo2["conselho"];
     $especialidade = $metodo2["especialidade"];
     $funcao = $metodo2["funcao"];

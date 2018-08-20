@@ -110,7 +110,7 @@ $con = $listar->listarPorIDPacientePorDAta($idPaciente);
                     </div>
 
                     <div class="form-group col-sm-4">
-                        <a href="<?php echo $dado->IDDENTE;?>">Ver Procedimento</a>
+                        <a href="../Telas/TelaVerProcedimento.php?idPaciente=<?php echo $dado["ID_PACIENTE"];?>">Ver Procedimento</a>
                         <a href="../Telas/TelaAtualizarControleClinico.php?idPaciente=<?php echo $dado["ID_PACIENTE"];?>">| Editar</a>
                     </div>
                 </div>

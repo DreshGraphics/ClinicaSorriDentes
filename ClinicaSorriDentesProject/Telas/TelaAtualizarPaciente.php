@@ -227,6 +227,7 @@ if (isset($metodo["txtNome"])) {
     $nome = $metodo["txtNome"];
     $sexo = $metodo["cxSexo"];
     $datanasc = $metodo["txtDataNasc"];
+    $datanasc = date("Y-m-d", strtotime(str_replace('/', '-', $datanasc)));
     $cpf = $metodo["txtCPF"];
     $profissao = $metodo["txtProfissao"];
     $tipoAtendimento = $metodo["txtAtendimento"];

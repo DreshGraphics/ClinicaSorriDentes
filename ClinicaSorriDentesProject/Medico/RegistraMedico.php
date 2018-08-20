@@ -9,6 +9,7 @@ if(isset($Metodo["nome"])){
     $telefone = $Metodo["telefone"];
     $email = $Metodo["email"];
     $dtanascimento = $Metodo["dtanascimento"];
+    $dtanascimento = date("Y-m-d", strtotime(str_replace('/', '-', $dtanascimento)));
     $conselho = $Metodo["conselho"];
     $especialidade = $Metodo["especialidade"];
     $funcao = $Metodo["funcao"];
