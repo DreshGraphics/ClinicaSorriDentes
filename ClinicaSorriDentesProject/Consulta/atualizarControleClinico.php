@@ -21,9 +21,6 @@ $remocao = 1;
 $atualizar = 1;
 $Salvar = 1;
 
-$contadorLinhasForm = count($metodo['procedimento']);
-
-
   //Verificar se exite ids para excluir
         if (isset($metodo["pegandoIds"])) {
             for ($i = 0; $i < count($metodo['pegandoIds']); $i++) {
@@ -53,7 +50,9 @@ if (isset($metodo["procedimento"])) {
             $dente->valorpk = $dado["IDDENTE"];
             $atualizar = $dente->atualizar($dente);
         }
-                       
+        
+        $contadorLinhasForm = count($procedimento);
+        
        //Se o numero de linhas no banco for maior do que o numero de linhas do meu form, ele salva.
         if ($contadorLinhasForm > $contadorBD) {
             for ($i = $contadorBD; $i < count($metodo['procedimento']); $i++) {
@@ -86,5 +85,11 @@ if (isset($metodo["procedimento"])) {
                        	
 		</script>";
         }    
+}else{
+    echo "
+		<script>
+                        alert('Não há mais dados para serem mostrados.!');
+			location.href='../Consulta/TelaControleClinicoTable.php';
+		</script>";
 }   
 ?>

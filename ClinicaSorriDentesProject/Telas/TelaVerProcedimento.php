@@ -18,8 +18,15 @@ if (isset($_SESSION["tipoUsuario"])) {
 }
 
 $metodo_get = $_GET;
-if (isset($metodo_get["idPaciente"])) {
+if (isset($metodo_get["idPaciente"]) && ($metodo_get["data"])) {
     $idPaciente = $metodo_get["idPaciente"];
+    $data = $metodo_get["data"];
+} else {
+    echo "
+		<script>
+			
+			location.href='../Consulta/TelaControleClinicoTable.php';
+		</script>";
 }
 
 $paciente = new Paciente();
@@ -29,7 +36,7 @@ $paciente->pesquisarID($paciente);
 $procedimento = new ProcedimentoDente();
 
 $listar = new listarTudo();
-$con = $listar->listarPorIDPaciente($idPaciente);
+$con = $listar->listarDadosPorPacienteData($idPaciente,$data);
 
 $dado = $paciente->retornaDados("object");
 $nome = $dado->NOME;
@@ -102,23 +109,23 @@ $html .= '</table>';
 
 while ($dadosProcedimento = $con->fetch_array()) {
 
-$html .= '<table class="procedimentos">';
-$html .= '<tr>';
-$html .= '<th>Procedimento</th>';
-$html .= '<th>Número do Dente</th>';
-$html .= '<th>Importância</th>';
-$html .= '<th>Valor Unitario</th>';
-$html .= '</tr>';
+    $html .= '<table class="procedimentos">';
+    $html .= '<tr>';
+    $html .= '<th>Procedimento</th>';
+    $html .= '<th>Número do Dente</th>';
+    $html .= '<th>Importância</th>';
+    $html .= '<th>Valor Unitario</th>';
+    $html .= '</tr>';
 
-$html .= '<tr>';
-$html .= '<td>' .$dadosProcedimento["PROCEDIMENTO"]. '</td>';
-$html .= '<td>' .$dadosProcedimento["NUMERO_DENTE"]. '</td>';
-$html .= '<td>' .$dadosProcedimento["IMPORTANCIA"]. '</td>';
-$html .= '<td>'. 'R$ '.$dadosProcedimento["VALOR"]. '</td>';
-$html .= '</tr>';
-$html .= '</table>';
+    $html .= '<tr>';
+    $html .= '<td>' . $dadosProcedimento["PROCEDIMENTO"] . '</td>';
+    $html .= '<td>' . $dadosProcedimento["NUMERO_DENTE"] . '</td>';
+    $html .= '<td>' . $dadosProcedimento["IMPORTANCIA"] . '</td>';
+    $html .= '<td>' . 'R$ ' . $dadosProcedimento["VALOR"] . '</td>';
+    $html .= '</tr>';
+    $html .= '</table>';
 
-$orcamento = $dadosProcedimento["ORCAMENTO_FINAL"];
+    $orcamento = $dadosProcedimento["ORCAMENTO_FINAL"];
 }
 
 $html .= '<table class="vlrTotal">';
@@ -127,10 +134,10 @@ $html .= '<th>Orçamento Final</th>';
 $html .= '</tr>';
 
 $html .= '<tr>';
-$html .= '<td>'.'R$ '.$orcamento. '</td>';
+$html .= '<td>' . 'R$ ' . $orcamento . '</td>';
 $html .= '</tr>';
 $html .= '</table>';
- 
+
 
 $dompdf = new Dompdf();
 
@@ -175,6 +182,5 @@ $dompdf->stream("Relatorio de Procedimentos.pdf", array(
     "Attachment" => FALSE
         )
 );
-
 ?>
 

@@ -62,6 +62,17 @@ class listarTudo extends ConexaoDB {
         return $resultado;    
     }
     
+    public function listarDadosPorPacienteData($idPaciente, $data){
+        
+        $dao = new daoGenerico();
+        
+	$sql = "SELECT * FROM `procedimento_dentes` WHERE ID_PACIENTE=".$idPaciente." AND DATA='".$data."'";
+        
+        $resultado = mysqli_query($this->conexao, $sql);
+
+        return $resultado;    
+    }
+    
     
     
 }
