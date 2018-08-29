@@ -13,15 +13,20 @@ if (isset($_SESSION["tipoUsuario"])) {
 $procedimento = new ProcedimentoDente();
 $metodo = $_GET;
 
-if (isset($metodo["idPaciente"])) {
+if (isset($metodo["idPaciente"]) && ($metodo["data"])) {
     $id = $metodo["idPaciente"];
-    $procedimento->valorpk = $id;
-    $procedimento->pesquisarID($procedimento);
+    $data = $metodo["data"];
+} else {
+    echo "
+		<script>
+			
+			location.href='../Consulta/TelaControleClinicoTable.php';
+		</script>";
 }
-$dados = $procedimento->retornaDados("object");
+
 
 $listar = new listarTudo();
-$con = $listar->listarPorIDPaciente($id);
+$con = $listar->listarDadosPorPacienteData($id,$data);
 ?>
 
 <!DOCTYPE html>
@@ -42,11 +47,11 @@ $con = $listar->listarPorIDPaciente($id);
         <script type="text/javascript">
 
             $(document).ready(function () {
-
+                
                 var tipo_user = "<?php echo $tipo_user ?>";
                 if (tipo_user != "Administrador") {
                     document.getElementById("opcaoUser").style.display = "none";
-                }
+                }                
             });
 
         </script>
@@ -225,16 +230,16 @@ $con = $listar->listarPorIDPaciente($id);
 
         //Recuperar os Ids e mandar para o arquivo do php
         $('.bt-salvar').click(function () {
-            
-            
-                  $.ajax({
-                    type: "POST",
-                    url: "../Consulta/atualizarControleClinico.php",
-                    data: {pegandoIds: Ids},
-                    success: function (data) {
-                        console.log(data);
-                    }
-                  });          
+
+
+            $.ajax({
+                type: "POST",
+                url: "../Consulta/atualizarControleClinico.php",
+                data: {pegandoIds: Ids},
+                success: function (data) {
+                    console.log(data);
+                }
+            });
         });
 
         function calcular() {
@@ -245,7 +250,7 @@ $con = $listar->listarPorIDPaciente($id);
 
 
                 var valorUnit = parseFloat(valor[i].value);
-                
+
                 total += valorUnit;
 
             }

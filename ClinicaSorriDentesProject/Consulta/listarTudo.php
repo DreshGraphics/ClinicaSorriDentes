@@ -55,7 +55,18 @@ class listarTudo extends ConexaoDB {
         
         $dao = new daoGenerico();
         
-	$sql = "SELECT * FROM `procedimento_dentes` WHERE ID_PACIENTE=".$chave." GROUP BY ID_PACIENTE ORDER BY ORCAMENTO_FINAL ASC";
+	$sql = "SELECT * FROM `procedimento_dentes` WHERE ID_PACIENTE=".$chave." GROUP BY DATA ORDER BY DATA ASC";
+        
+        $resultado = mysqli_query($this->conexao, $sql);
+
+        return $resultado;    
+    }
+    
+    public function listarDadosPorPacienteData($idPaciente, $data){
+        
+        $dao = new daoGenerico();
+        
+	$sql = "SELECT * FROM `procedimento_dentes` WHERE ID_PACIENTE=".$idPaciente." AND DATA='".$data."'";
         
         $resultado = mysqli_query($this->conexao, $sql);
 
