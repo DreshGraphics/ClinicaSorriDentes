@@ -1,78 +1,74 @@
 <?php
+
 include_once '../util/daoGenerico.php';
 include_once '../BancoDeDados/Conexao_Banco_ClinicaSorridentes.php.inc';
 
 class listarTudo extends ConexaoDB {
-    
-    public function listar($chave){
-        
+
+    public function listarPorIDPaciente($chave) {
+
         $dao = new daoGenerico();
-        
-	$sql = "SELECT * FROM `procedimento_dentes` GROUP BY ID_PACIENTE ORDER BY ORCAMENTO_FINAL ASC";
-        
+
+        $sql = "SELECT * FROM `procedimento` WHERE ID_PACIENTE=" . $chave . ";";
+
         $resultado = mysqli_query($this->conexao, $sql);
 
-        return $resultado;    
+        if ($resultado) {
+            return $resultado;
+        } else {
+            echo "<script>alert('Houve um erro ao tentar buscar dados no Banco.!');"
+            . "window.history.back(1);</script>";
+        }
     }
-        
-    public function listarPorIDPaciente($chave){
-        
+
+    public function contadorLinhas($chave) {
+
         $dao = new daoGenerico();
-        
-	$sql = "SELECT * FROM `procedimento_dentes` WHERE ID_PACIENTE=".$chave.";";
-        
+
+        $sql = "SELECT IDPROCEDIMENTO FROM `procedimento` WHERE ID_PACIENTE=" . $chave . ";";
+
         $resultado = mysqli_query($this->conexao, $sql);
 
-        return $resultado;    
-    }
-    
-    public function listarIDS($chave){
-        
-        $dao = new daoGenerico();
-        
-	$sql = "SELECT IDDENTE FROM `procedimento_dentes` WHERE ID_PACIENTE=".$chave.";";
-        
-        $resultado = mysqli_query($this->conexao, $sql);
-
-        return $resultado;    
-    }
-    
-    public function contadorLinhas($chave){
-        
-        $dao = new daoGenerico();
-        
-	$sql = "SELECT IDDENTE FROM `procedimento_dentes` WHERE ID_PACIENTE=".$chave.";";
-        
-        $resultado = mysqli_query($this->conexao, $sql);
-        
         $contator = mysqli_num_rows($resultado);
-        
-        return $contator;
- 
+
+        if ($contator) {
+            return $contator;
+        } else {
+            echo "<script>alert('Houve um erro ao tentar buscar dados no Banco.!');"
+            . "window.history.back(1);</script>";
+        }
     }
-    
-    public function listarPorIDPacientePorDAta($chave){
-        
+
+    public function listarPorIDPacientePorDAta($chave) {
+
         $dao = new daoGenerico();
-        
-	$sql = "SELECT * FROM `procedimento_dentes` WHERE ID_PACIENTE=".$chave." GROUP BY DATA ORDER BY DATA ASC";
-        
+
+        $sql = "SELECT * FROM `procedimento` WHERE ID_PACIENTE=" . $chave . " GROUP BY DATA ORDER BY DATA ASC";
+
         $resultado = mysqli_query($this->conexao, $sql);
 
-        return $resultado;    
+        if ($resultado) {
+            return $resultado;
+        } else {
+            echo "<script>alert('Houve um erro ao tentar buscar dados no Banco.!');"
+            . "window.history.back(1);</script>";
+        }
     }
-    
-    public function listarDadosPorPacienteData($idPaciente, $data){
-        
+
+    public function listarDadosPorPacienteData($idPaciente, $data) {
+
         $dao = new daoGenerico();
-        
-	$sql = "SELECT * FROM `procedimento_dentes` WHERE ID_PACIENTE=".$idPaciente." AND DATA='".$data."'";
-        
+
+        $sql = "SELECT * FROM `procedimento` WHERE ID_PACIENTE=" . $idPaciente . " AND DATA='" . $data . "'";
+
         $resultado = mysqli_query($this->conexao, $sql);
 
-        return $resultado;    
+        if ($resultado) {
+            return $resultado;
+        } else {
+            echo "<script>alert('Houve um erro ao tentar buscar dados no Banco.!');"
+            . "window.history.back(1);</script>";
+        }
     }
-    
-    
-    
+
 }

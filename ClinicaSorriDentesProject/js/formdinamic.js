@@ -1,3 +1,6 @@
+
+//Não excluir esse arquivo. Ele sevirá de exemplo para adição e remoção de campos dinamicos do Sistema.
+
 $(document).ready(function() {
     
   var max_fields = 20; //maximo de inputs permitidos

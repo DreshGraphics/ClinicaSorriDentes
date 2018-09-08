@@ -3,20 +3,20 @@
 include_once '../util/daoGenerico.php';
 include_once '../BancoDeDados/Conexao_Banco_ClinicaSorridentes.php.inc';
 
-class ValidaCadastro extends ConexaoDB {
+class validaCPF extends ConexaoDB {
 
-    public function validarCadastro($login) {
+    public function ValidarCPF($cpf) {
 
         $dao = new daoGenerico();
 
-        $sql = "SELECT LOGIN FROM usuario WHERE LOGIN = '$login' ";
+        $sql = "SELECT CPF FROM `paciente` WHERE CPF = '$cpf'";
 
         $resultado = mysqli_query($this->conexao, $sql);
 
         if ($resultado) {
             return $resultado;
         } else {
-            echo "<script>alert('Houve um erro ao tentar buscar usuario no banco.!');window.location = '../Telas/TelaCadastroUsuario.php';</script>";
+            echo "<script>alert('Houve um erro ao tentar buscar CPF no banco.!');window.location = '../Telas/TelaCadastroUsuario.php';</script>";
         }
     }
 

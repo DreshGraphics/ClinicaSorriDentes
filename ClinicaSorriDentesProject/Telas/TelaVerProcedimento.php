@@ -4,43 +4,40 @@ session_start();
 
 use Dompdf\Dompdf;
 
-include_once '../Login/ProtectPaginas.php';
 include_once '../Paciente/Paciente.php';
-include_once '../Consulta/FichaClinica.php';
 include_once '../Consulta/listarTudo.php';
 include_once '../Consulta/ProcedimentoDente.php';
 include_once '../util/daoGenerico.php';
 require_once '../dompdf/autoload.inc.php';
 
-protect();
 if (isset($_SESSION["tipoUsuario"])) {
     $tipo_user = $_SESSION["tipoUsuario"];
+} else {
+    header("Location: ./Index.php");
 }
 
 $metodo_get = $_GET;
 if (isset($metodo_get["idPaciente"]) && ($metodo_get["data"])) {
     $idPaciente = $metodo_get["idPaciente"];
     $data = $metodo_get["data"];
-} else {
-    echo "
-		<script>
-			
-			location.href='../Consulta/TelaControleClinicoTable.php';
-		</script>";
 }
 
 $paciente = new Paciente();
 $paciente->valorpk = $idPaciente;
 $paciente->pesquisarID($paciente);
 
-$procedimento = new ProcedimentoDente();
-
-$listar = new listarTudo();
-$con = $listar->listarDadosPorPacienteData($idPaciente,$data);
-
 $dado = $paciente->retornaDados("object");
+
+if ($dado->IDPACIENTE == NULL) {
+    header("Location: ../Consulta/TelaControleClinicoTable.php");
+}
+
+$procedimento = new ProcedimentoDente();
+$listar = new listarTudo();
+$con = $listar->listarDadosPorPacienteData($idPaciente, $data);
+
 $nome = $dado->NOME;
-$data = $dado->DATANASC;
+$data = $dado->NASCIMENTO;
 $sexo = $dado->SEXO;
 $CPF = $dado->CPF;
 $atendimento = $dado->TIPOATENDIMENTO;
@@ -51,8 +48,6 @@ $endereco = $dado->ENDERECO;
 $bairro = $dado->BAIRRO;
 $cidade = $dado->CIDADE;
 $numero = $dado->NUMERO;
-$situacao = $dado->SITUACAO;
-
 
 $html = '<table class="paciente">';
 $html .= '<tr>';
@@ -97,15 +92,7 @@ $html .= '<td>' . $cidade . '</td>';
 $html .= '<td>' . $numero . '</td>';
 $html .= '</tr>';
 
-$html .= '<tr>';
-$html .= '<th>Situação</th>';
-$html .= '</tr>';
-
-$html .= '<tr>';
-$html .= '<td>' . $situacao . '</td>';
-$html .= '</tr>';
 $html .= '</table>';
-
 
 while ($dadosProcedimento = $con->fetch_array()) {
 
@@ -121,7 +108,7 @@ while ($dadosProcedimento = $con->fetch_array()) {
     $html .= '<td>' . $dadosProcedimento["PROCEDIMENTO"] . '</td>';
     $html .= '<td>' . $dadosProcedimento["NUMERO_DENTE"] . '</td>';
     $html .= '<td>' . $dadosProcedimento["IMPORTANCIA"] . '</td>';
-    $html .= '<td>' . 'R$ ' . $dadosProcedimento["VALOR"] . '</td>';
+    $html .= '<td>' . 'R$ ' . $dadosProcedimento["VALORUNITARIO"] . '</td>';
     $html .= '</tr>';
     $html .= '</table>';
 
@@ -137,7 +124,6 @@ $html .= '<tr>';
 $html .= '<td>' . 'R$ ' . $orcamento . '</td>';
 $html .= '</tr>';
 $html .= '</table>';
-
 
 $dompdf = new Dompdf();
 
@@ -174,7 +160,6 @@ $dompdf->load_html('<style>
         <h4 style="text-align: center">Cliníca Sorridentes</h4>
         <h4 style="text-align: center">Relatorio de Procedimentos</h4>
         ' . $html . '');
-
 
 $dompdf->render();
 

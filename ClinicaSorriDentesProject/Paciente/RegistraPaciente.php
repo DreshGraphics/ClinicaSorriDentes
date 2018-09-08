@@ -1,13 +1,17 @@
 <?php
 
 session_start();
+require_once '../util/daoGenerico.php';
 require_once '../Paciente/Paciente.php';
+require_once './validarCPF.php';
 
 /**
  * Description of Paciente
  *
  * @author Felipe
  */
+$Valcpf = new validaCPF();
+
 $metodo = $_POST;
 
 //PEGANDO VALORES DOS CAMPOS
@@ -29,12 +33,16 @@ if (isset($metodo["txtNome"])) {
     $complemento = $metodo["txtComplemento"];
     $cep = $metodo["txtCEP"];
 
+    $resultado = $Valcpf->ValidarCPF($cpf);
+    $dados = mysqli_fetch_array($resultado);
+
+    if (!isset($dados["CPF"])) {
         //SETANDO OS VALORES NO OBJETO
         $paciente = new Paciente();
 
         $paciente->setValor("NOME", $nome);
         $paciente->setValor("SEXO", $sexo);
-        $paciente->setValor("DATANASC", $datanasc);
+        $paciente->setValor("NASCIMENTO", $datanasc);
         $paciente->setValor("CPF", $cpf);
         $paciente->setValor("PROFISSAO", $profissao);
         $paciente->setValor("TIPOATENDIMENTO", $tipoAtendimento);
@@ -49,9 +57,12 @@ if (isset($metodo["txtNome"])) {
         $paciente->setValor("CEP", $cep);
 
         if ($paciente->inserir($paciente)) {
-            echo "<script>alert('Paciente cadastrado com sucesso!!');window.location = '../Telas/TelaCadastroPaciente.php';</script>";
+            echo "<script>alert('Paciente cadastrado com Sucesso.!');window.location = '../Telas/TelaCadastroPaciente.php';</script>";
         } else {
-            echo "<script>alert('Você esqueceu de preencher algum campo obrigatório :/');window.history.back(1);</script>";
+            echo "<script>alert('Houve um erro ao tentar cadastrar um Paciente. Por favor, tente mais tarde.! ');window.history.back(1);</script>";
         }
+    } else {
+        echo "<script>alert('O CPF informado ja existe.!');window.history.back(1);</script>";
+    }
 }
 ?>

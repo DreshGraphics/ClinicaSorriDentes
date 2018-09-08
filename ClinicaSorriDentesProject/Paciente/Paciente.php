@@ -1,28 +1,39 @@
 <?php
 
 require_once '../util/baseBD.php';
+
 /**
  * Description of Paciente
  *
  * @author Felipe
  */
 class Paciente extends baseBD {
-    
+
     public function __construct($campos = array()) {
         parent::__construct();
         $this->tabela = "PACIENTE";
         if (sizeof($campos) <= 0) {
             $this->campos_valores = array(
                 "NOME" => NULL,
-                "SEXO" => NULL, "DATANASC" => NULL, "CPF" => NULL, 
-                "PROFISSAO" => NULL, "TIPOATENDIMENTO" => NULL, 
-                "CELULAR" => NULL, "ESTADOCIVIL" => NULL,  
-                "ENDERECO" => NULL,"BAIRRO" => NULL,"NUMERO" => NULL,"CIDADE" => NULL, "ESTADO" => NULL,
-                "COMPLEMENTO" => NULL, "CEP" => NULL
+                "SEXO" => NULL,
+                "NASCIMENTO" => NULL,
+                "CPF" => NULL,
+                "PROFISSAO" => NULL,
+                "TIPOATENDIMENTO" => NULL,
+                "CELULAR" => NULL,
+                "ESTADOCIVIL" => NULL,
+                "ENDERECO" => NULL,
+                "BAIRRO" => NULL,
+                "NUMERO" => NULL,
+                "CIDADE" => NULL,
+                "ESTADO" => NULL,
+                "COMPLEMENTO" => NULL,
+                "CEP" => NULL
             );
         } else {
             $this->campos_valores = $campos;
         }
-        $this->campopk="IDPACIENTE";
+        $this->campopk = "IDPACIENTE";
     }
+
 }

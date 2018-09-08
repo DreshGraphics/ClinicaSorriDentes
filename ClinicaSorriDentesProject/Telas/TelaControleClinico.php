@@ -1,29 +1,27 @@
 <?php
 session_start();
-include_once '../Login/ProtectPaginas.php';
 include_once '../Paciente/Paciente.php';
-protect();
 
-if (isset($_SESSION["TIPOUSUARIO"])) {
-    $tipo_user = $_SESSION["TIPOUSUARIO"];
+if (isset($_SESSION["tipoUsuario"])) {
+    $tipo_user = $_SESSION["tipoUsuario"];
+} else {
+    header("Location: ./Index.php");
 }
 
 $metodo = $_GET;
 if (isset($metodo["IDpaciente"])) {
     $idPaciente = $metodo["IDpaciente"];
-} else {
-    header('Location:../Telas/TelaListaPacienteTable.php');
 }
 
 $paciente = new Paciente();
 $paciente->valorpk = $idPaciente;
+$paciente->pesquisarID($paciente);
 
-$resultado = $paciente->pesquisarID($paciente);
-$dados = mysqli_fetch_array($resultado);
+$dados = $paciente->retornaDados("object");
 
-
-$_SESSION["idPaciente"] = $dados["IDPACIENTE"];
-$_SESSION["nomePaciente"] = $dados["NOME"];
+if ($dados->IDPACIENTE == NULL) {
+    header("Location: ./TelaListaPacienteTable.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +38,6 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
         <link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="../js/jquery-3.2.1.js"></script>
-
         <script type="text/javascript">
 
             $(document).ready(function () {
@@ -85,11 +82,10 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
             <div class="row col-md-12">
                 <h2 class="titulo-h2">Controle Clinico</h2>
 
-                <h4>Paciente: <?php echo $_SESSION["nomePaciente"] ?> </h4>
-
+                <h4>Paciente: <?php echo $dados->NOME ?> </h4>
             </div>
 
-            <form method="POST" action="../Consulta/salvarControleClinico.php?IDpaciente=<?php echo $_SESSION["idPaciente"] ?>">
+            <form method="POST" action="../Consulta/salvarControleClinico.php?IDpaciente=<?php echo $idPaciente ?>">
 
                 <div id="linhas-container">
                     <div class="linha-campos">
@@ -120,7 +116,7 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
 
                             <div class="form-group col-md-3">
                                 <label>Número do Dente</label>
-                                <input type="number" name="numDente[]">
+                                <input type="number" name="numDente[]" required>
                             </div>
 
                             <div class="form-group col-md-3">
@@ -135,39 +131,37 @@ $_SESSION["nomePaciente"] = $dados["NOME"];
 
                             <div class="form-group col-md-3">
                                 <label>Valor Unitário</label>
-                                <input type="number" value="0" name="valor_unit[]">
+                                <input type="number" value="0" name="valor_unit[]" required>
                             </div>
-                            
+
                         </div>
-                        
-                         <div class="row">
-                                <div class="form-group separador col-sm-12">
-                                </div>    
-                            </div> 
-                       
+
+                        <div class="row">
+                            <div class="form-group separador col-sm-12">
+                            </div>    
+                        </div> 
+
                     </div>
                 </div>
-                
-               
 
                 <div id="container-total">
                     <div class="row">
 
                         <div class="form-group col-md-3">
                             <label>Valor Total</label>
-                            <input type="number" value="0" name="valor_total" readonly="readonly">
+                            <input type="number" value="0" name="valor_total" readonly="readonly" required>
                         </div>
 
                         <div class="form-group col-sm-3">
                             <label>Orçamento Final</label>
-                            <input type="text" name="orçamentoFinal" id="orçamentoFinal">
+                            <input type="text" name="orçamentoFinal" id="orçamentoFinal" required>
                         </div>
 
                     </div>
 
                     <button class="bt-salvar">Salvar</button>
                     <button id="botao-add" class="bt-buscar">Adicionar</button>
-                    <button type="button" class="bt-buscar"><a href="../Consulta/TelaControleClinicoTable.php?IDpaciente=<?php echo $_SESSION["idPaciente"] ?>">Pesquisar</a></button>
+                    <button type="button" class="bt-buscar"><a href="../Consulta/TelaControleClinicoTable.php?IDpaciente=<?php echo $idPaciente ?>">Pesquisar</a></button>
 
                 </div>
             </form>

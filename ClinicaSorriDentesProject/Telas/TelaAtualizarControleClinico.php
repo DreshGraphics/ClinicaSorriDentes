@@ -1,32 +1,35 @@
 <?php
 session_start();
-include_once '../Login/ProtectPaginas.php';
 include_once '../Paciente/Paciente.php';
 include_once '../Consulta/ProcedimentoDente.php';
 require_once '../Consulta/listarTudo.php';
-protect();
+
+$procedimento = new ProcedimentoDente();
 
 if (isset($_SESSION["tipoUsuario"])) {
     $tipo_user = $_SESSION["tipoUsuario"];
+} else {
+    header("Location: ./Index.php");
 }
 
-$procedimento = new ProcedimentoDente();
 $metodo = $_GET;
-
 if (isset($metodo["idPaciente"]) && ($metodo["data"])) {
     $id = $metodo["idPaciente"];
     $data = $metodo["data"];
-} else {
-    echo "
-		<script>
-			
-			location.href='../Consulta/TelaControleClinicoTable.php';
-		</script>";
 }
 
+$paciente = new Paciente();
+$paciente->valorpk = $id;
+$paciente->pesquisarID($paciente);
+
+$dados = $paciente->retornaDados("object");
+
+if ($dados->IDPACIENTE == NULL) {
+    header("Location: ../Consulta/TelaControleClinicoTable.php");
+}
 
 $listar = new listarTudo();
-$con = $listar->listarDadosPorPacienteData($id,$data);
+$con = $listar->listarDadosPorPacienteData($id, $data);
 ?>
 
 <!DOCTYPE html>
@@ -47,11 +50,11 @@ $con = $listar->listarDadosPorPacienteData($id,$data);
         <script type="text/javascript">
 
             $(document).ready(function () {
-                
+
                 var tipo_user = "<?php echo $tipo_user ?>";
                 if (tipo_user != "Administrador") {
                     document.getElementById("opcaoUser").style.display = "none";
-                }                
+                }
             });
 
         </script>
@@ -86,11 +89,11 @@ $con = $listar->listarDadosPorPacienteData($id,$data);
             <div class="row col-md-12">
                 <h2 class="titulo-h2">Controle Clinico</h2>
 
-                <h4>Paciente: <?php echo $_SESSION["nomePaciente"] ?> </h4>
+                <h4>Paciente: <?php echo $dados->NOME ?> </h4>
 
             </div>
             <?php while ($dado = $con->fetch_array()) { ?>
-                <form method="POST" action="../Consulta/atualizarControleClinico.php?IDPaciente=<?php echo $dado["ID_PACIENTE"]; ?>">   
+                <form method="POST" action="../Consulta/atualizarControleClinico.php?IDPaciente=<?php echo $id; ?>">   
 
                     <div id="linhas-container">
                         <div class="linha-campos"> 
@@ -120,7 +123,7 @@ $con = $listar->listarDadosPorPacienteData($id,$data);
 
                                 <div class="form-group col-md-3">
                                     <label>Número do Dente</label>
-                                    <input type="number" value="<?php echo $dado["NUMERO_DENTE"] ?>" name="numDente[]">
+                                    <input type="number" value="<?php echo $dado["NUMERO_DENTE"] ?>" name="numDente[]" required>
                                 </div>
 
                                 <div class="form-group col-md-3">
@@ -135,13 +138,13 @@ $con = $listar->listarDadosPorPacienteData($id,$data);
 
                                 <div class="form-group col-md-3">
                                     <label>Valor Unitário</label>
-                                    <input type="number" value="<?php echo $dado["VALOR"]; ?>" name="valor_unit[]" onkeyup="calcular();"/>
+                                    <input type="number" value="<?php echo $dado["VALORUNITARIO"]; ?>" name="valor_unit[]" onkeyup="calcular();" required/>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-group col-sm-3">
-                                    <button type="button" class="bt-remover" id="<?php echo $dado["IDDENTE"]; ?>">Remover</button>
+                                    <button type="button" class="bt-remover" id="<?php echo $dado["IDPROCEDIMENTO"]; ?>">Remover</button>
                                 </div>
                             </div>
 
@@ -166,18 +169,18 @@ $con = $listar->listarDadosPorPacienteData($id,$data);
                     <div class="row">
                         <div class="form-group col-md-3">
                             <label>Valor Total</label>
-                            <input type="number" id="vlTotal" name="valor_total[]" readonly="readonly">
+                            <input type="number" id="vlTotal" name="valor_total[]" readonly="readonly" required>
                         </div>
 
                         <div class="form-group col-sm-3">
                             <label>Orçamento Final</label>
-                            <input type="text" value="<?php echo $orcamento; ?>" name="orçamentoFinal" id="orçamentoFinal">
+                            <input type="text" value="<?php echo $orcamento; ?>" name="orçamentoFinal" id="orçamentoFinal" required>
                         </div>
                     </div>
                 </div>
                 <button type="submit" class="bt-salvar">Salvar</button>
                 <button type="button" id="btn2" class="bt-buscar add_campo">Adicionar</button>
-                <button type="button" class="bt-buscar"><a href="../Consulta/TelaControleClinicoTable.php">Pesquisar</a></button>
+                <button type="button" class="bt-buscar"><a href="../Consulta/TelaControleClinicoTable.php?IDpaciente=<?php echo $id ?>">Pesquisar</a></button>
             </form>
         </div>
         <footer>
