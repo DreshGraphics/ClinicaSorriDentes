@@ -37,7 +37,7 @@ $listar = new listarTudo();
 $con = $listar->listarDadosPorPacienteData($idPaciente, $data);
 
 $nome = $dado->NOME;
-$data = $dado->NASCIMENTO;
+$data = date("d/m/Y", strtotime($dado->NASCIMENTO));
 $sexo = $dado->SEXO;
 $CPF = $dado->CPF;
 $atendimento = $dado->TIPOATENDIMENTO;

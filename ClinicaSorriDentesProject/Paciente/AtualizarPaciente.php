@@ -2,9 +2,7 @@
 
 session_start();
 require_once '../util/daoGenerico.php';
-include_once '../Login/ProtectPaginas.php';
 require_once './Paciente.php';
-protect();
 
 $paciente = new Paciente();
 

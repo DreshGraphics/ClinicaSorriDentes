@@ -4,9 +4,6 @@ session_start();
 require_once '../util/daoGenerico.php';
 require_once './Medico.php';
 
-include_once '../Login/ProtectPaginas.php';
-protect();
-
 $medico = new Medico();
 $metodo = $_GET;
 
