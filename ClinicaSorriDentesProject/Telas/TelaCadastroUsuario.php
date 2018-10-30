@@ -1,14 +1,10 @@
 <?php
 session_start();
 
-if (isset($_SESSION["tipoUsuario"])) {
-    $tipo_user = $_SESSION["tipoUsuario"];
-
-    if ($tipo_user != "Administrador") {
-        header("Location: ../Telas/Home.php");
-    }
+if (isset($_SESSION["login"])) {
+    $NomeLogin = $_SESSION["login"];
 } else {
-    header("Location: ./Index.php");
+    header("Location: ../Telas/Index.php");
 }
 ?>
 
@@ -29,13 +25,7 @@ if (isset($_SESSION["tipoUsuario"])) {
         <script type="text/javascript">
 
             $(document).ready(function () {
-
-                var tipo_user = "<?php echo $tipo_user ?>";
-
-                if (tipo_user != "Administrador") {
-                    document.getElementById("opcaoUser").style.display = "none";
-                }
-
+                var User = "<?php echo $NomeLogin ?>";
             });
 
         </script>
@@ -88,15 +78,7 @@ if (isset($_SESSION["tipoUsuario"])) {
                         </p>
                         <input type="password" name="senha" id="senhaU" required>
 
-                        <p> 
-                            <label for="tipoU">Tipo de Usuário</label>                 
-                        </p>
-                        <select name="tipoUsuario" id="tipoU">
-                            <option value="Administrador"> Administrador </option>
-                            <option value="Recepcionista"> Recepcionista </option>
-                            <option value="Medico"> Médico </option>    
-                        </select>
-
+                        
                         <button type="submit" name="salvar" class="bt-salvar">Salvar</button>
                         <a href="../Usuario/TelaUsuarioTable.php"><button type="button" class="bt-buscar">Buscar</button></a>
                     </form>

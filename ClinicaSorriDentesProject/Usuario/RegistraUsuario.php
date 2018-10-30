@@ -14,9 +14,8 @@ if (isset($metodo["login"])) {
     $nome = $metodo["nome"];
     $login = $metodo["login"];
     $senha = md5($metodo["senha"]);
-    $tipo = $metodo["tipoUsuario"];
 
-
+    
     $resultado = $valida->validarCadastro($login);
 
     $dados_cadastro = mysqli_fetch_array($resultado);
@@ -29,7 +28,7 @@ if (isset($metodo["login"])) {
         $usuario->setValor("NOME", $nome);
         $usuario->setValor("LOGIN", $login);
         $usuario->setValor("SENHA", $senha);
-        $usuario->setValor("TIPOUSUARIO", $tipo);
+        
 
         if ($usuario->inserir($usuario)) {
             echo "<script>alert('Usuário cadastrado com sucesso!');window.location = '../Telas/TelaCadastroUsuario.php';</script>";

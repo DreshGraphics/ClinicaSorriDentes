@@ -3,14 +3,10 @@ session_start();
 require_once '../util/daoGenerico.php';
 require_once '../Usuario/Usuario.php';
 
-if (isset($_SESSION["tipoUsuario"])) {
-    $tipo_user = $_SESSION["tipoUsuario"];
-
-    if ($tipo_user != "Administrador") {
-        header("Location: ../Telas/Home.php");
-    }
+if (isset($_SESSION["login"])) {
+    $NomeLogin = $_SESSION["login"];
 } else {
-    header("Location: ./Index.php");
+    header("Location: ../Telas/Index.php");
 }
 
 $usuario = new Usuario();
@@ -46,13 +42,7 @@ if ($dado->IDUSUARIO == null) {
         <script type="text/javascript">
 
             $(document).ready(function () {
-
-                var tipo_user = "<?php echo $tipo_user ?>";
-
-                if (tipo_user != "Administrador") {
-                    document.getElementById("opcaoUser").style.display = "none";
-                }
-
+               var User = "<?php echo $NomeLogin ?>";
             });
 
         </script>
@@ -105,14 +95,7 @@ if ($dado->IDUSUARIO == null) {
                         </p>
                         <input type="password" name="senha" id="senhaU" value="" onfocus="this.value = '';" required>
 
-                        <p> 
-                            <label for="tipoU">Tipo de Usuário</label>                 
-                        </p>
-                        <select name="tipoUsuario" id="tipoU" value="<?php echo $dado->TIPOUSUARIO ?>">
-                            <option value="Administrador"> Administrador </option>
-                            <option value="Recepcionista"> Recepcionista </option>
-                            <option value="Medico"> Médico </option>    
-                        </select>
+                        
                         <button type="submit" name="atualizar" class="bt-att">Salvar</button>
                         <a href="../Usuario/TelaUsuarioTable.php"><button type="button" class="bt-voltar">Voltar</button></a>
                     </form>

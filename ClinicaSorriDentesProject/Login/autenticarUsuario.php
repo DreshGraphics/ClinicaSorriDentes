@@ -23,7 +23,7 @@ if (isset($metodo["username"]) && (md5($metodo["password"]))) {
 
     if (isset($dados_usuario['LOGIN']) && ($dados_usuario['SENHA'])) {
 
-        $_SESSION["tipoUsuario"] = $dados_usuario["TIPOUSUARIO"];
+        $_SESSION["login"] = $dados_usuario["LOGIN"];
 
         echo "<script>window.location = '../Telas/Home.php';</script>";
     } else {

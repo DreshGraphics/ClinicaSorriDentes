@@ -43,7 +43,7 @@ class listarTudo extends ConexaoDB {
 
         $dao = new daoGenerico();
 
-        $sql = "SELECT * FROM `procedimento` WHERE ID_PACIENTE=" . $chave . " GROUP BY DATA ORDER BY DATA ASC";
+        $sql = "SELECT * FROM `procedimento` WHERE ID_PACIENTE=" . $chave . " GROUP BY DATE(DATA) ORDER BY DATE(DATA) ASC";
 
         $resultado = mysqli_query($this->conexao, $sql);
 
@@ -59,7 +59,7 @@ class listarTudo extends ConexaoDB {
 
         $dao = new daoGenerico();
 
-        $sql = "SELECT * FROM `procedimento` WHERE ID_PACIENTE=" . $idPaciente . " AND DATA='" . $data . "'";
+        $sql = "SELECT * FROM `procedimento` WHERE ID_PACIENTE=" . $idPaciente . " AND date(DATA)='".$data."'";
 
         $resultado = mysqli_query($this->conexao, $sql);
 

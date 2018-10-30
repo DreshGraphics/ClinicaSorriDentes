@@ -12,8 +12,7 @@ class Usuario extends baseBD {
             $this->campos_valores = array(
                 "NOME" => NULL,
                 "LOGIN" => NULL,
-                "SENHA" => NULL,
-                "TIPOUSUARIO" => NULL
+                "SENHA" => NULL
             );
         } else {
             $this->campos_valores = $campos;

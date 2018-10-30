@@ -79,7 +79,7 @@ if (isset($metodo["procedimento"])) {
     } else {
         echo "
 		<script>
-			alert('Houve um erro ao tentar realizar alterações no Sistema. Por favor, tente novamente.!');
+			alert('Não foi possivel realizar alterações no Sistema. Por favor, tente novamente.!');
                         window.location = '../Consulta/TelaControleClinicoTable.php';
                        	
 		</script>";

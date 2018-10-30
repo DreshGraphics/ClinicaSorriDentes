@@ -17,12 +17,10 @@ if (isset($Metodo["usuario"])) {
         $nome = $txtTitulo["nome"];
         $login = $txtTitulo["login"];
         $senha = md5($txtTitulo["senha"]);
-        $tipo = $txtTitulo["tipoUsuario"];
 
         $usuario->setValor("NOME", $nome);
         $usuario->setValor("LOGIN", $login);
         $usuario->setValor("SENHA", $senha);
-        $usuario->setValor("TIPOUSUARIO", $tipo);
 
         $usuario->valorpk = $id;
 

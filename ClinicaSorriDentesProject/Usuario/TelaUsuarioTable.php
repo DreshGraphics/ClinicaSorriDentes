@@ -2,14 +2,10 @@
 session_start();
 require_once './Usuario.php';
 
-if (isset($_SESSION["tipoUsuario"])) {
-    $tipo_user = $_SESSION["tipoUsuario"];
-
-    if ($tipo_user != "Administrador") {
-        header("Location: ../Telas/Home.php");
-    }
+if (isset($_SESSION["login"])) {
+    $NomeLogin = $_SESSION["login"];
 } else {
-    header("Location: ./Index.php");
+    header("Location: ../Telas/Index.php");
 }
 
 $usuario = new Usuario();
@@ -30,13 +26,7 @@ $usuario->retornaTudo($usuario);
         <script type="text/javascript">
 
             $(document).ready(function () {
-
-                var tipo_user = "<?php echo $tipo_user ?>";
-
-                if (tipo_user != "Administrador") {
-                    document.getElementById("opcaoUser").style.display = "none";
-                }
-
+                var User = "<?php echo $NomeLogin ?>";
             });
 
         </script>
@@ -75,7 +65,6 @@ $usuario->retornaTudo($usuario);
                             <th class="column1">Id</th>
                             <th class="column2">Nome</th>
                             <th class="column3">Login</th>
-                            <th class="column4">Tipo</th>
                             <th class="column5">Ação</th>
                         </tr>
                     </thead>
@@ -85,7 +74,6 @@ $usuario->retornaTudo($usuario);
                                 <td><?php echo $dado->IDUSUARIO ?></td>
                                 <td><?php echo $dado->NOME ?></td>
                                 <td><?php echo $dado->LOGIN ?></td>
-                                <td><?php echo $dado->TIPOUSUARIO ?></td>
                                 <td class="column5"><a href="../Telas/TelaAtualizarUsuario.php?usuario=<?php echo $dado->IDUSUARIO; ?>">Editar</a> 
                                     <a href="" id="separador">|</a>
                                     <a href="javascript: if(confirm('Deseja realmente deletar o paciente <?php echo $dado->NOME; ?> ?')) 

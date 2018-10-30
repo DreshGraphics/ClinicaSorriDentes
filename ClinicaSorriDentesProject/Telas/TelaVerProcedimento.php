@@ -10,10 +10,10 @@ include_once '../Consulta/ProcedimentoDente.php';
 include_once '../util/daoGenerico.php';
 require_once '../dompdf/autoload.inc.php';
 
-if (isset($_SESSION["tipoUsuario"])) {
-    $tipo_user = $_SESSION["tipoUsuario"];
+if (isset($_SESSION["login"])) {
+    $NomeLogin = $_SESSION["login"];
 } else {
-    header("Location: ./Index.php");
+    header("Location: ../Telas/Index.php");
 }
 
 $metodo_get = $_GET;

@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (isset($_SESSION["tipoUsuario"])) {
-    $tipo_user = $_SESSION["tipoUsuario"];
+if (isset($_SESSION["login"])) {
+    $NomeLogin = $_SESSION["login"];
 } else {
-    header("Location: ./Index.php");
+    header("Location: ../Telas/Index.php");
 }
 ?>﻿
 <!DOCTYPE html>
@@ -23,11 +23,7 @@ if (isset($_SESSION["tipoUsuario"])) {
 
             $(document).ready(function () {
 
-                var tipo_user = "<?php echo $tipo_user ?>";
-
-                if (tipo_user != "Administrador") {
-                    document.getElementById("opcaoUser").style.display = "none";
-                }
+                var User = "<?php echo $NomeLogin ?>";
 
             });
 

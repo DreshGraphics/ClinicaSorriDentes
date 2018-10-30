@@ -2,10 +2,10 @@
 session_start();
 include_once '../Paciente/Paciente.php';
 
-if (isset($_SESSION["tipoUsuario"])) {
-    $tipo_user = $_SESSION["tipoUsuario"];
+if (isset($_SESSION["login"])) {
+    $NomeLogin = $_SESSION["login"];
 } else {
-    header("Location: ./Index.php");
+    header("Location: ../Telas/Index.php");
 }
 
 $metodo = $_GET;
@@ -41,13 +41,7 @@ if ($dados->IDPACIENTE == NULL) {
         <script type="text/javascript">
 
             $(document).ready(function () {
-
-                var tipo_user = "<?php echo $tipo_user ?>";
-
-                if (tipo_user != "Administrador") {
-                    document.getElementById("opcaoUser").style.display = "none";
-                }
-
+              var User = "<?php echo $NomeLogin ?>";
             });
 
         </script>
