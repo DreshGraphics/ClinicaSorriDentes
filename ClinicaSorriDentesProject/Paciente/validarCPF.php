@@ -9,7 +9,7 @@ class validaCPF extends ConexaoDB {
 
         $dao = new daoGenerico();
 
-        $sql = "SELECT CPF FROM `paciente` WHERE CPF = '$cpf'";
+        $sql = "SELECT CPF FROM `paciente` WHERE CPF = '$cpf' AND CPF IS NOT NULL;";
 
         $resultado = mysqli_query($this->conexao, $sql);
 

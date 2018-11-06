@@ -32,14 +32,18 @@ if (isset($metodo["txtNome"])) {
     $estado = $metodo["txtEstado"];
     $complemento = $metodo["txtComplemento"];
     $cep = $metodo["txtCEP"];
-
+    
+    $paciente = new Paciente();
     $resultado = $Valcpf->ValidarCPF($cpf);
     $dados = mysqli_fetch_array($resultado);
+    
+    if ($cpf == ""){
+         $paciente->setValor("CPF", "NULL");
+    }
 
     if (!isset($dados["CPF"])) {
         //SETANDO OS VALORES NO OBJETO
-        $paciente = new Paciente();
-
+   
         $paciente->setValor("NOME", $nome);
         $paciente->setValor("SEXO", $sexo);
         $paciente->setValor("NASCIMENTO", $datanasc);

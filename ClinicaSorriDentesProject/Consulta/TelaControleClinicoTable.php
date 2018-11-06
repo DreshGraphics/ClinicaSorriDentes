@@ -11,8 +11,8 @@ require_once '../Consulta/listarTudo.php';
 
 $paciente = new Paciente();
 
-if (isset($_SESSION["tipoUsuario"])) {
-    $tipo_user = $_SESSION["tipoUsuario"];
+if (isset($_SESSION["login"])) {
+    $NomeLogin = $_SESSION["login"];
 } else {
     header("Location: ../Telas/Index.php");
 }

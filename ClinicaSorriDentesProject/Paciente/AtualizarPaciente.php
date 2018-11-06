@@ -30,6 +30,10 @@ if (isset($metodo["txtNome"])) {
     $estado = $metodo["txtEstado"];
     $complemento = $metodo["txtComplemento"];
     $cep = $metodo["txtCEP"];
+    
+        if ($cpf == ""){
+         $paciente->setValor("CPF", "NULL");
+    }
 
     //SETANDO VALORES PARA ATUALIZAR
     $paciente->setValor("NOME", $nome);

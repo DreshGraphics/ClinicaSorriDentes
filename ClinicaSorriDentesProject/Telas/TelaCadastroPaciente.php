@@ -77,8 +77,7 @@ if (isset($_SESSION["login"])) {
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="sexo">Sexo:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <select class="form-control" name="cxSexo" id="sexo" required>
+                                <select class="form-control" name="cxSexo" id="sexo">
                                     <option value="">-----</option>
                                     <option value="Masculino">Masculino</option>
                                     <option value="Feminino">Feminino</option>
@@ -89,21 +88,18 @@ if (isset($_SESSION["login"])) {
                         <div class="row">
                             <div class="form-group col-md-3">
                                 <label for="cpf">CPF:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control" name="txtCPF" id="cpf" onblur="return VerificaCPF();" required>
+                                <input type="text" class="form-control" name="txtCPF" id="cpf">
                                 <span id="error" style="color: red;font-style: italic;"></span>
                             </div>
 
                             <div class="form-group col-md-4">
                                 <label for="atendimento">Tipo Atendimento:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control up" name="txtAtendimento" id="atendimento" required>
+                                <input type="text" class="form-control up" name="txtAtendimento" id="atendimento">
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label for="eCivil">Estado Civil:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <select class="form-control" name="cxEstadoCivil" id="eCivil" required>
+                                <select class="form-control" name="cxEstadoCivil" id="eCivil">
                                     <option value="">-----</option>
                                     <option value="Casado(a)">Casado(a)</option>
                                     <option value="Solteiro(a)">Solteiro(a)</option>
@@ -114,53 +110,45 @@ if (isset($_SESSION["login"])) {
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="profissao">Profissão:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control up" name="txtProfissao" id="profissao" required>
+                                <input type="text" class="form-control up" name="txtProfissao" id="profissao">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group col-md-4">
                                 <label for="cidade">Cidade:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control up" name="txtCidade" id="cidade" required>
+                                <input type="text" class="form-control up" name="txtCidade" id="cidade">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="estado">Estado:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control up" name="txtEstado" id="estado" required>
+                                <input type="text" class="form-control up" name="txtEstado" id="estado">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="CEP">CEP:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control" name="txtCEP" id="CEP" required>
+                                <input type="text" class="form-control" name="txtCEP" id="CEP">
                             </div>
 
                             <div class="form-group col-md-2">
                                 <label for="celular">Celular:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control" name="txtCelular" id="celular" required>
+                                <input type="text" class="form-control" name="txtCelular" id="celular">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group col-md-3">
                                 <label for="bairro">Bairro:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control up" name="txtBairro" id="bairro" required>
+                                <input type="text" class="form-control up" name="txtBairro" id="bairro">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="endereco">Endereço:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control up" name="txtEndereco" id="endereco" required>
+                                <input type="text" class="form-control up" name="txtEndereco" id="endereco">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="numero">Numero:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control" name="txtNumero" id="numero" required>  
+                                <input type="text" class="form-control" name="txtNumero" id="numero">  
                             </div>
 
                             <div class="form-group col-md-3">

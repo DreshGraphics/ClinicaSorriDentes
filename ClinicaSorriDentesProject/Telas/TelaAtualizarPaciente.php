@@ -90,16 +90,18 @@ if ($dado->IDPACIENTE == NULL) {
                         <div class="row">
                             <div class="form-group col-md-6" >
                                 <label for="nome">Nome:</label>
+                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                                 <input type="text" class="form-control up" name="txtNome" value="<?php echo $dado->NOME ?>" id="nome" required>
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="dataNasc">Data de Nasc:</label>
+                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                                 <input type="text" class="form-control" name="txtDataNasc" value="<?php echo date("d-m-Y", strtotime($dado->NASCIMENTO)) ?>" id="dataNasc" required>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="sexo">Sexo:</label>
-                                <select class="form-control" name="cxSexo" id="sexo" required>
+                                <select class="form-control" name="cxSexo" id="sexo">
                                     <option value="">-----</option>
                                     <option value="Masculino" <?php if ($dado->SEXO == "Masculino") echo 'selected'; ?>>Masculino</option>
                                     <option value="Feminino" <?php if ($dado->SEXO == "Feminino") echo 'selected'; ?>>Feminino</option>
@@ -110,17 +112,16 @@ if ($dado->IDPACIENTE == NULL) {
                         <div class="row">
                             <div class="form-group col-md-3">
                                 <label for="cpf">CPF:</label>
-                                <input type="text" class="form-control" name="txtCPF" value="<?php echo $dado->CPF ?>" id="cpf"  onblur="return VerificaCPF();"  required>
+                                <input type="text" class="form-control" name="txtCPF" value="<?php echo $dado->CPF ?>" id="cpf"  onblur="return VerificaCPF();">
                                 <span id="error" style="color: red;font-style: italic;"></span>
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="atendimento">Tipo Atendimento:</label>
-                                <input type="text" class="form-control up" name="txtAtendimento" value="<?php echo $dado->TIPOATENDIMENTO ?>" id="atendimento" required>
+                                <input type="text" class="form-control up" name="txtAtendimento" value="<?php echo $dado->TIPOATENDIMENTO ?>" id="atendimento">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="eCivil">Estado Civil:</label>
-                                <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <select class="form-control" name="cxEstadoCivil" id="eCivil" required>
+                                <select class="form-control" name="cxEstadoCivil" id="eCivil">
                                     <option value="">-----</option>
                                     <option value="Casado(a)" <?php if ($dado->ESTADOCIVIL == "Casado(a)") echo 'selected'; ?>>Casado(a)</option>
                                     <option value="Solteiro(a)" <?php if ($dado->ESTADOCIVIL == "Solteiro(a)") echo 'selected'; ?>>Solteiro(a)</option>
@@ -131,44 +132,44 @@ if ($dado->IDPACIENTE == NULL) {
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="profissao">Profissão:</label>
-                                <input type="text" class="form-control up" name="txtProfissao" value="<?php echo $dado->PROFISSAO ?>" id="profissao" required>
+                                <input type="text" class="form-control up" name="txtProfissao" value="<?php echo $dado->PROFISSAO ?>" id="profissao">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group col-md-4">
                                 <label for="cidade">Cidade:</label>
-                                <input type="text" class="form-control up" name="txtCidade" value="<?php echo $dado->CIDADE ?>" id="cidade" required>
+                                <input type="text" class="form-control up" name="txtCidade" value="<?php echo $dado->CIDADE ?>" id="cidade">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="estado">Estado:</label>
-                                <input type="text" class="form-control up" name="txtEstado" value="<?php echo $dado->ESTADO ?>" id="estado" required>
+                                <input type="text" class="form-control up" name="txtEstado" value="<?php echo $dado->ESTADO ?>" id="estado">
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="CEP">CEP:</label>
-                                <input type="text" class="form-control" name="txtCEP" value="<?php echo $dado->CEP ?>" id="CEP" required>
+                                <input type="text" class="form-control" name="txtCEP" value="<?php echo $dado->CEP ?>" id="CEP">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="celular">Celular:</label>
-                                <input type="text" class="form-control" name="txtCelular" value="<?php echo $dado->CELULAR ?>" id="celular"  required>
+                                <input type="text" class="form-control" name="txtCelular" value="<?php echo $dado->CELULAR ?>" id="celular">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group col-md-3">
                                 <label for="bairro">Bairro:</label>
-                                <input type="text" class="form-control up" name="txtBairro" value="<?php echo $dado->BAIRRO ?>" id="bairro" required>
+                                <input type="text" class="form-control up" name="txtBairro" value="<?php echo $dado->BAIRRO ?>" id="bairro">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="endereco">Endereço:</label>
-                                <input type="text" class="form-control up" name="txtEndereco" value="<?php echo $dado->ENDERECO ?>" id="endereco"  required>
+                                <input type="text" class="form-control up" name="txtEndereco" value="<?php echo $dado->ENDERECO ?>" id="endereco">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="numero">Numero:</label>
-                                <input type="text" class="form-control" name="txtNumero" value="<?php echo $dado->NUMERO ?>" id="numero"  required>  
+                                <input type="text" class="form-control" name="txtNumero" value="<?php echo $dado->NUMERO ?>" id="numero">  
                             </div>
 
                             <div class="form-group col-md-3">
