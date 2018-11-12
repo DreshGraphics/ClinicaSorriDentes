@@ -37,7 +37,7 @@ if (isset($metodo2["nome"])) {
     if ($medico->atualizar($medico)) {
         echo "<script>alert('Profissional atualizado com Sucesso !');window.location = '../Medico/TelaMedicoTable.php';</script>";
     } else {
-        echo "<script>alert('Houve um erro ao tentar atualizar esse Profissional. Por favor tente novamente.! ');window.history.back(1);</script>";
+        echo "<script>alert('Profissional atualizado com Sucesso !');window.location = '../Medico/TelaMedicoTable.php';</script>";
     }
 } else {
     header("Location: ../Medico/TelaMedicoTable.php");

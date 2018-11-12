@@ -16,7 +16,7 @@ class validaCPF extends ConexaoDB {
         if ($resultado) {
             return $resultado;
         } else {
-            echo "<script>alert('Houve um erro ao tentar buscar CPF no banco.!');window.location = '../Telas/TelaCadastroUsuario.php';</script>";
+            echo "<script>alert('Houve um erro ao tentar buscar CPF no banco.!');window.location = '../Telas/TelaCadastroPaciente.php';</script>";
         }
     }
 

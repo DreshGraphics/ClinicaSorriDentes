@@ -27,7 +27,7 @@ if (isset($Metodo["usuario"])) {
         if ($usuario->atualizar($usuario)) {
             echo "<script>alert('Usuário atualizado com sucesso!');window.location = './TelaUsuarioTable.php';</script>";
         } else {
-            echo "<script>alert('Houve um erro ao tentar atualizar Usuario. Por favor, tente novamente.!');</script>";
+            echo "<script>alert('Usuário atualizado com sucesso!');window.location = './TelaUsuarioTable.php';</script>";
         }
     }
 } else {

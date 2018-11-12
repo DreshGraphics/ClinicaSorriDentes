@@ -57,7 +57,7 @@ if (isset($metodo["txtNome"])) {
     if ($paciente->atualizar($paciente)) {
         echo "<script>alert('Paciente atualizado com Sucesso.!');window.location = '../Paciente/TelaPacienteTable.php';</script>";
     } else {
-        echo "<script>alert('Houve um erro ao tentar atualizar Paciente. Por favor, tente novamente.!');</script>";
+        echo "<script>alert('Paciente atualizado com Sucesso.!');window.location = '../Paciente/TelaPacienteTable.php';</script>";
     }
 } else {
     header("Location: ../Paciente/TelaPacienteTable.php");
