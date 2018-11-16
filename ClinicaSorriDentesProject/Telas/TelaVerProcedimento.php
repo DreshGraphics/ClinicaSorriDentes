@@ -157,7 +157,7 @@ $dompdf->load_html('<style>
             }
             
         </style>
-        <h4 style="text-align: center">Cliníca Sorridentes</h4>
+        <h4 style="text-align: center; ">Cliníca Sorridentes</h4>
         <h4 style="text-align: center">Relatorio de Procedimentos</h4>
         ' . $html . '');
 

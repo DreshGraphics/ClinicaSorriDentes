@@ -110,7 +110,7 @@ if ($dados->IDPACIENTE == NULL) {
 
                             <div class="form-group col-md-3">
                                 <label>Número do Dente</label>
-                                <input type="number" name="numDente[]" required>
+                                <input type="number" min='0' name="numDente[]" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" required>
                             </div>
 
                             <div class="form-group col-md-3">
@@ -125,7 +125,7 @@ if ($dados->IDPACIENTE == NULL) {
 
                             <div class="form-group col-md-3">
                                 <label>Valor Unitário</label>
-                                <input type="number" value="0" name="valor_unit[]" required>
+                                <input min='0' type="number" name="valor_unit[]" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" required>
                             </div>
 
                         </div>
@@ -148,7 +148,7 @@ if ($dados->IDPACIENTE == NULL) {
 
                         <div class="form-group col-sm-3">
                             <label>Orçamento Final</label>
-                            <input type="text" name="orçamentoFinal" id="orçamentoFinal" required>
+                            <input type="text" value="0" name="orçamentoFinal" id="orçamentoFinal" required>
                         </div>
 
                     </div>
@@ -183,7 +183,7 @@ if ($dados->IDPACIENTE == NULL) {
         e.preventDefault();
         var novaLinha = primLinha.cloneNode(true);
 
-        novaLinha.querySelector('input[name="valor_unit[]"]').value = 0;
+        novaLinha.querySelector('input[name="valor_unit[]"]').value = "";
 
         var botDeletar = document.createElement('button');
         $(botDeletar).addClass("bt-remover");

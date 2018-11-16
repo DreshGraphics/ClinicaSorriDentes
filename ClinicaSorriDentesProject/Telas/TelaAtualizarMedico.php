@@ -120,7 +120,7 @@ if ($dado->IDMEDICO == null) {
 
                             <div class="form-group col-sm-4">
                                 <label for="especialidadeId">Especialidade:</label>
-                                <input type="text" class="form-control up" value="<?php echo $dado->ESPECIALIDADE ?>" name="especialidade" id="especialidadeId" required>
+                                <input type="text" class="form-control up" value="<?php echo $dado->ESPECIALIDADE ?>" name="especialidade" id="especialidadeId">
                             </div>
                         </div>
 

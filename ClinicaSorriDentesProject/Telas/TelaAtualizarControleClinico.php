@@ -119,7 +119,7 @@ $con = $listar->listarDadosPorPacienteData($id, $data);
 
                                 <div class="form-group col-md-3">
                                     <label>Número do Dente</label>
-                                    <input type="number" value="<?php echo $dado["NUMERO_DENTE"] ?>" name="numDente[]" required>
+                                    <input min='0' type="number" value="<?php echo $dado["NUMERO_DENTE"] ?>" name="numDente[]" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" required>
                                 </div>
 
                                 <div class="form-group col-md-3">
@@ -134,7 +134,7 @@ $con = $listar->listarDadosPorPacienteData($id, $data);
 
                                 <div class="form-group col-md-3">
                                     <label>Valor Unitário</label>
-                                    <input type="number" value="<?php echo $dado["VALORUNITARIO"]; ?>" name="valor_unit[]" onkeyup="calcular();" required/>
+                                    <input min='0' type="number" value="<?php echo $dado["VALORUNITARIO"]; ?>" name="valor_unit[]" onkeyup="calcular();" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" required/>
                                 </div>
                             </div>
 
@@ -198,7 +198,7 @@ $con = $listar->listarDadosPorPacienteData($id, $data);
 
             if (x < max_fields) {
                 x++; //text box increment
-                $(wrapper).append('<div id="linhas-container"><div class="linha-campos"><div class="row"><div class="form-group col-md-3"><label for="proc">Procedimento</label><select name="procedimento[]" id="procedimento"><option>extração</option><option>obturação amálgama</option><option>obturaçao luz halogênea</option><option>tratamento canal</option><option>limpeza</option><option>remoção de tártaro</option><option>flúor</option><option>pivot</option><option>coroa porcelana</option><option>coroa venne</option><option>cirurgia</option><option>prótese superior</option><option>prótese inferior</option><option>radiografia</option><option>aparelho</option><option>clareamento c/ moldeiras</option></select></div><div class="form-group col-md-3"><label>Número do Dente</label><input type="number" name="numDente[]"></div><div class="form-group col-md-3"><label for="proc">Importância</label><select name="importancia[]" id="importancia"><option>BAIXA IMPORTANCIA</option><option>MEDIA IMPORTANCIA</option><option>ALTA IMPORTANCIA</option></select></div><div class="form-group col-md-3"><label>Valor Unitário</label><input type="number" value="0" name="valor_unit[]" onkeyup="calcular();"></div></div><div class="row"><div class="form-group col-sm-3"><button type="button" class="bt-remover" id="removerDiv">Remover</button></div></div><div class="row"><div class="form-group separador col-sm-12"></div></div></div></div>');
+                $(wrapper).append('<div id="linhas-container"><div class="linha-campos"><div class="row"><div class="form-group col-md-3"><label for="proc">Procedimento</label><select name="procedimento[]" id="procedimento"><option>extração</option><option>obturação amálgama</option><option>obturaçao luz halogênea</option><option>tratamento canal</option><option>limpeza</option><option>remoção de tártaro</option><option>flúor</option><option>pivot</option><option>coroa porcelana</option><option>coroa venne</option><option>cirurgia</option><option>prótese superior</option><option>prótese inferior</option><option>radiografia</option><option>aparelho</option><option>clareamento c/ moldeiras</option></select></div><div class="form-group col-md-3"><label>Número do Dente</label><input min="0" type="number" name="numDente[]" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" required></div><div class="form-group col-md-3"><label for="proc">Importância</label><select name="importancia[]" id="importancia"><option>BAIXA IMPORTANCIA</option><option>MEDIA IMPORTANCIA</option><option>ALTA IMPORTANCIA</option></select></div><div class="form-group col-md-3"><label>Valor Unitário</label><input type="number" min="0" name="valor_unit[]" onkeyup="calcular();"></div></div><div class="row"><div class="form-group col-sm-3"><button type="button" class="bt-remover" id="removerDiv">Remover</button></div></div><div class="row"><div class="form-group separador col-sm-12"></div></div></div></div>');
 
             }
             //Fazendo com que cada uma escreva seu name

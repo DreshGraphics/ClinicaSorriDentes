@@ -114,7 +114,7 @@ if (isset($_SESSION["login"])) {
 
                             <div class="form-group col-sm-4">
                                 <label for="especialidadeId">Especialidade:</label>
-                                <input type="text" class="form-control up" name="especialidade" id="especialidadeId" required >
+                                <input type="text" class="form-control up" name="especialidade" id="especialidadeId">
                             </div>
                         </div>
 

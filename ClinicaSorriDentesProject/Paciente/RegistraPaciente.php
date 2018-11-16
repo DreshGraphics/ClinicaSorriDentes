@@ -37,13 +37,8 @@ if (isset($metodo["txtNome"])) {
     $resultado = $Valcpf->ValidarCPF($cpf);
     $dados = mysqli_fetch_array($resultado);
     
-    if ($cpf == ""){
-         $paciente->setValor("CPF", "NULL");
-    }
-
     if (!isset($dados["CPF"])) {
-        //SETANDO OS VALORES NO OBJETO
-   
+        //SETANDO OS VALORES NO OBJETO  
         $paciente->setValor("NOME", $nome);
         $paciente->setValor("SEXO", $sexo);
         $paciente->setValor("NASCIMENTO", $datanasc);
