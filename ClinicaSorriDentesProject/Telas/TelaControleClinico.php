@@ -54,7 +54,7 @@ if ($dados->IDPACIENTE == NULL) {
             <div id="right"><img src="../img/cct.png"></div>
             <nav class="menu" id="menu">
                 <ul>
-                    <li><a href="../Telas/Home.php">Inicio</a></li>
+                    <li><a href="../Telas/Home.php">Início</a></li>
                     <li><a href="#">Cadastro</a>
                         <ul>
                             <li id="opcaoUser"><a href="../Telas/TelaCadastroUsuario.php">Usuário</a></li>
@@ -92,7 +92,7 @@ if ($dados->IDPACIENTE == NULL) {
                                     <option>extração</option>
                                     <option>obturação amálgama</option>
                                     <option>obturaçao luz halogênea</option>
-                                    <option>tratamento canal</option>
+                                    <option>tratamento de canal</option>
                                     <option>limpeza</option>
                                     <option>remoção de tártaro</option>
                                     <option>flúor</option>

@@ -40,7 +40,7 @@ if (isset($_SESSION["login"])) {
             <div id="right"><img src="../img/cct.png"></div>
             <nav class="menu" id="menu">
                 <ul>
-                    <li><a href="../Telas/Home.php">Inicio</a></li>
+                    <li><a href="../Telas/Home.php">Início</a></li>
                     <li><a href="#">Cadastro</a>
                         <ul>
                             <li id="opcaoUser"><a href="../Telas/TelaCadastroUsuario.php">Usuário</a></li>
@@ -94,7 +94,7 @@ if (isset($_SESSION["login"])) {
                             <div class="form-group col-sm-7">
                                 <label for="emailId">Email:</label>
                                 <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control" name="email" id="emailId" required>
+                                <input type="email" class="form-control" name="email" id="emailId" required>
                             </div>
                         </div>
 

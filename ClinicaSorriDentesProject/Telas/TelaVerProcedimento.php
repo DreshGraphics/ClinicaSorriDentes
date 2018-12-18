@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-
 use Dompdf\Dompdf;
 
 include_once '../Paciente/Paciente.php';
@@ -47,7 +46,7 @@ $cep = $dado->CEP;
 $endereco = $dado->ENDERECO;
 $bairro = $dado->BAIRRO;
 $cidade = $dado->CIDADE;
-$numero = $dado->NUMERO;
+$numero = $dado->NÚMERO;
 
 $html = '<table class="paciente">';
 $html .= '<tr>';
@@ -101,7 +100,7 @@ while ($dadosProcedimento = $con->fetch_array()) {
     $html .= '<th>Procedimento</th>';
     $html .= '<th>Número do Dente</th>';
     $html .= '<th>Importância</th>';
-    $html .= '<th>Valor Unitario</th>';
+    $html .= '<th>Valor Unitário</th>';
     $html .= '</tr>';
 
     $html .= '<tr>';

@@ -53,7 +53,7 @@ if ($dado->IDMEDICO == null) {
             <div id="right"><img src="../img/cct.png"></div>
             <nav class="menu" id="menu">
                 <ul>
-                    <li><a href="../Telas/Home.php">Inicio</a></li>
+                    <li><a href="../Telas/Home.php">Início</a></li>
                     <li><a href="#">Cadastro</a>
                         <ul>
                             <li id="opcaoUser"><a href="../Telas/TelaCadastroUsuario.php">Usuário</a></li>
@@ -79,16 +79,19 @@ if ($dado->IDMEDICO == null) {
                     <form action="../Medico/AtualizaMedico.php?medico=<?php echo $dado->IDMEDICO ?>" method="POST">
                         <div class="row">
                             <div class="form-group col-sm-6">
+                                 <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                                 <label for="nome">Nome:</label>
                                 <input type="text" class="form-control up" value="<?php echo $dado->NOME ?>" name="nome" id="nome" required>
                             </div>
 
                             <div class="form-group col-sm-3">
+                                 <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                                 <label for="DataNasc">Data de Nascimento</label>
                                 <input type="text" class="form-control" value="<?php echo date("d-m-Y", strtotime($dado->NASCIMENTO)) ?>" name="dtanascimento" id="DataNasc" required>
                             </div>
 
                             <div class="form-group col-sm-3">
+                                 <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                                 <label for="conselhoId" >Conselho:</label>
                                 <input type= "text" class="form-control" value="<?php echo $dado->CONSELHO ?>" name="conselho" id="conselhoId" required>
                             </div>
@@ -96,29 +99,34 @@ if ($dado->IDMEDICO == null) {
 
                         <div class="row">
                             <div class="form-group col-sm-5">
+                                 <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                                 <label for="telefoneId">Telefone:</label>
                                 <input type="text" class="form-control" value="<?php echo $dado->TELEFONE ?>" name="telefone" id="telefoneId" required>
                             </div>
 
                             <div class="form-group col-sm-7">
+                                 <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                                 <label for="emailId">Email:</label>
-                                <input type="text" class="form-control" value="<?php echo $dado->EMAIL ?>" name="email" id="emailId">
+                                <input type="email" class="form-control" value="<?php echo $dado->EMAIL ?>" name="email" id="emailId" required>
                             </div>
                         </div>
 
                         <div class="row"> 
                             <div class="form-group col-sm-4">
+                                 <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                                 <label for="tipoDeAtendimento">Tipo de Atendimento:</label>
                                 <input type="text" class="form-control up" value="<?php echo $dado->TIPOATENDIMENTO ?>" name="tipodeatendimento" id="tipoDeAtendimento" required>
 
                             </div>
 
                             <div class="form-group col-sm-4">
+                                 <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
                                 <label for="funcaoId">Função:</label>
                                 <input type="text" class="form-control up" value="<?php echo $dado->FUNCAO ?>" name="funcao" id="funcaoId" required>
                             </div>
 
                             <div class="form-group col-sm-4">
+                        
                                 <label for="especialidadeId">Especialidade:</label>
                                 <input type="text" class="form-control up" value="<?php echo $dado->ESPECIALIDADE ?>" name="especialidade" id="especialidadeId">
                             </div>

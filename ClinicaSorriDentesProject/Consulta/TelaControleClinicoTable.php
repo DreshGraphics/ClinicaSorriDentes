@@ -56,7 +56,7 @@ $con = $listar->listarPorIDPacientePorDAta($idPaciente);
             <div id="right"><img src="../img/cct.png"></div>
             <nav class="menu" id="menu">
                 <ul>
-                    <li><a href="../Telas/Home.php">Inicio</a></li>
+                    <li><a href="../Telas/Home.php">Início</a></li>
                     <li><a href="#">Cadastro</a>
                         <ul>
                             <li id="opcaoUser"><a href="../Telas/TelaCadastroUsuario.php">Usuário</a></li>

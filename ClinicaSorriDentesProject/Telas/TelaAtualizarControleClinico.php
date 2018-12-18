@@ -63,7 +63,7 @@ $con = $listar->listarDadosPorPacienteData($id, $data);
             <div id="right"><img src="../img/cct.png"></div>
             <nav class="menu" id="menu">
                 <ul>
-                    <li><a href="../Telas/Home.php">Inicio</a></li>
+                    <li><a href="../Telas/Home.php">Início</a></li>
                     <li><a href="#">Cadastro</a>
                         <ul>
                             <li id="opcaoUser"><a href="../Telas/TelaCadastroUsuario.php">Usuário</a></li>
@@ -101,7 +101,7 @@ $con = $listar->listarDadosPorPacienteData($id, $data);
                                         <option value="extração" <?php if ($dado["PROCEDIMENTO"] == "extração") echo 'selected'; ?>>extração</option>
                                         <option value="obturação amálgama" <?php if ($dado["PROCEDIMENTO"] == "obturação amálgama") echo 'selected'; ?>>obturação amálgama</option>
                                         <option value="obturaçao luz halogênea" <?php if ($dado["PROCEDIMENTO"] == "obturaçao luz halogênea") echo 'selected'; ?> >obturaçao luz halogênea</option>
-                                        <option value="tratamento canal" <?php if ($dado["PROCEDIMENTO"] == "tratamento canal") echo 'selected'; ?>>tratamento canal</option>
+                                        <option value="tratamento canal" <?php if ($dado["PROCEDIMENTO"] == "tratamento de canal") echo 'selected'; ?>>tratamento de canal</option>
                                         <option value="limpeza" <?php if ($dado["PROCEDIMENTO"] == "limpeza") echo 'selected'; ?>>limpeza</option>
                                         <option value="remoção de tártaro" <?php if ($dado["PROCEDIMENTO"] == "remoção de tártaro") echo 'selected'; ?>>remoção de tártaro</option>
                                         <option value="flúor" <?php if ($dado["PROCEDIMENTO"] == "flúor") echo 'selected'; ?>>flúor</option>

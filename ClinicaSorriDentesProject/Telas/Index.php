@@ -47,7 +47,6 @@ if (isset($_SESSION["login"])) {
                 </div>
                 <input type="submit" name="submit" value="LOGIN" class="btn-login">
             </form>
-            <a href="#">Esqueceu sua senha?</a>
         </div>
     </body>
 </html>

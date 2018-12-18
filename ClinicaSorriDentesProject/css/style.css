@@ -159,18 +159,8 @@ footer h1{
 	color: #f3f3f3;
 	text-align: center;
 	margin-top: 20px;
-	cursor: pointer;
-	user-select: none;
 }
 
-footer h1:hover{
-	color: #0077b8;
-}
-
-footer h1:active{
-	position: relative;
-	top: 1px;
-}
 
 @media (max-width: 1000px){
 
