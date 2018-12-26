@@ -170,7 +170,7 @@ $con = $listar->listarDadosPorPacienteData($id, $data);
 
                         <div class="form-group col-sm-3">
                             <label>Orçamento Final</label>
-                            <input type="text" value="<?php echo $orcamento; ?>" name="orçamentoFinal" id="orçamentoFinal" required>
+                            <input type="number" value="<?php echo $orcamento; ?>" name="orçamentoFinal" id="orçamentoFinal" required>
                         </div>
                     </div>
                 </div>

@@ -97,7 +97,7 @@ if ($dado->IDPACIENTE == NULL) {
                             <div class="form-group col-md-3">
                                 <label for="dataNasc">Data de Nasc:</label>
                                 <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control" name="txtDataNasc" value="<?php echo date("d-m-Y", strtotime($dado->NASCIMENTO)) ?>" id="dataNasc" required>
+                                <input type="date" class="form-control" name="txtDataNasc" value="<?php echo date("Y-m-d", strtotime($dado->NASCIMENTO)) ?>" id="dataNasc" required>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="sexo">Sexo:</label>
@@ -112,7 +112,7 @@ if ($dado->IDPACIENTE == NULL) {
                         <div class="row">
                             <div class="form-group col-md-3">
                                 <label for="cpf">CPF:</label>
-                                <input type="text" class="form-control" name="txtCPF" value="<?php echo $dado->CPF ?>" id="cpf"  onblur="return VerificaCPF();">
+                                <input type="text" minlength="11" class="form-control" name="txtCPF" value="<?php echo $dado->CPF ?>" id="cpf"  onblur="return VerificaCPF();">
                                 <span id="error" style="color: red;font-style: italic;"></span>
                             </div>
                             <div class="form-group col-md-4">
@@ -148,7 +148,7 @@ if ($dado->IDPACIENTE == NULL) {
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="CEP">CEP:</label>
-                                <input type="text" class="form-control" name="txtCEP" value="<?php echo $dado->CEP ?>" id="CEP">
+                                <input type="text" minlength="8" class="form-control" name="txtCEP" value="<?php echo $dado->CEP ?>" id="CEP">
                             </div>
                             <div class="form-group col-md-2">
                                 <label for="celular">Celular:</label>
@@ -169,7 +169,7 @@ if ($dado->IDPACIENTE == NULL) {
 
                             <div class="form-group col-md-3">
                                 <label for="numero">Numero:</label>
-                                <input type="text" class="form-control" name="txtNumero" value="<?php echo $dado->NUMERO ?>" id="numero">  
+                                <input type="number" class="form-control" name="txtNumero" value="<?php echo $dado->NUMERO ?>" id="numero">  
                             </div>
 
                             <div class="form-group col-md-3">
@@ -194,7 +194,6 @@ if ($dado->IDPACIENTE == NULL) {
         <script src="../js/jquery.mask.js"></script>
         <script type="text/javascript">
                                     $(document).ready(function () {
-                                        $('#dataNasc').mask('00/00/0000');
                                         $('#cpf').mask('000.000.000-00');
                                         $('#celular').mask('(00) 00000-0000');
                                         $('#CEP').mask('00000-000');

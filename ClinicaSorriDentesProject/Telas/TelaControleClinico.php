@@ -148,7 +148,7 @@ if ($dados->IDPACIENTE == NULL) {
 
                         <div class="form-group col-sm-3">
                             <label>Orçamento Final</label>
-                            <input type="text" value="0" name="orçamentoFinal" id="orçamentoFinal" required>
+                            <input type="number"  name="orçamentoFinal" id="orçamentoFinal" required>
                         </div>
 
                     </div>

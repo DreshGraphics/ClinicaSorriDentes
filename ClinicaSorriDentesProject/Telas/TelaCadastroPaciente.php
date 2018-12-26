@@ -73,7 +73,7 @@ if (isset($_SESSION["login"])) {
                             <div class="form-group col-md-3">
                                 <label for="dataNasc">Data de Nasc:</label>
                                 <span class="obg" style="color: #A12126; font-size: 20px; float: right;">*</span>
-                                <input type="text" class="form-control" name="txtDataNasc" id="dataNasc" required>
+                                <input type="date" class="form-control" name="txtDataNasc" id="dataNasc" required>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="sexo">Sexo:</label>
@@ -88,7 +88,7 @@ if (isset($_SESSION["login"])) {
                         <div class="row">
                             <div class="form-group col-md-3">
                                 <label for="cpf">CPF:</label>
-                                <input type="text" class="form-control" name="txtCPF" id="cpf">
+                                <input type="text" minlength="11" class="form-control" name="txtCPF" id="cpf">
                                 <span id="error" style="color: red;font-style: italic;"></span>
                             </div>
 
@@ -126,7 +126,7 @@ if (isset($_SESSION["login"])) {
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="CEP">CEP:</label>
-                                <input type="text" class="form-control" name="txtCEP" id="CEP">
+                                <input type="text" minlength="8" class="form-control" name="txtCEP" id="CEP">
                             </div>
 
                             <div class="form-group col-md-2">
@@ -148,7 +148,7 @@ if (isset($_SESSION["login"])) {
 
                             <div class="form-group col-md-3">
                                 <label for="numero">Numero:</label>
-                                <input type="text" class="form-control" name="txtNumero" id="numero">  
+                                <input type="number" class="form-control" name="txtNumero" id="numero">  
                             </div>
 
                             <div class="form-group col-md-3">
