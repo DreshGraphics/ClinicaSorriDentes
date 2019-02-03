@@ -76,7 +76,7 @@ if ($dados->IDPACIENTE == NULL) {
             <div class="row col-md-12">
                 <h2 class="titulo-h2">Controle Clinico</h2>
 
-                <h4>Paciente: <?php echo $dados->NOME ?> </h4>
+                <h4>Paciente: <?php echo $dados->NOME ?></h4>
             </div>
 
             <form method="POST" action="../Consulta/salvarControleClinico.php?IDpaciente=<?php echo $idPaciente ?>">
