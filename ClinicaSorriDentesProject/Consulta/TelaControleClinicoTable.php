@@ -97,7 +97,7 @@ $con = $listar->listarPorIDPacientePorDAta($idPaciente);
 
                 <?php while ($dado = $con->fetch_array()) { ?>
                     <div class="row tupla">
-                        <div class="form-group col-sm-3">
+                        <div class="form-group col-sm-3" style="word-wrap: break-word;">
                             <?php
                             $paciente->valorpk = $dado["ID_PACIENTE"];
 

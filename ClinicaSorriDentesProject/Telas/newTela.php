@@ -36,7 +36,7 @@ if ($dados->IDPACIENTE == NULL) {
 	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<script src="../js/jquery-3.2.1.js"></script>
 	<script type="text/javascript">
 
@@ -126,7 +126,7 @@ if ($dados->IDPACIENTE == NULL) {
 				<div class="form-group col-md-3">
 					<label>Valor Unitário</label>
 					<input min='0' type="number" name="valor_unit[]" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57" disabled>
-					<button data-toggle="modal" data-target="#exampleModal" style="width: 25px; height: 25px; border-radius: 50%; background-color: #f3f3f3; border: none;">$</button>
+					<button data-toggle="modal" data-target="#modalPaciente" style="width: 25px; height: 25px; border-radius: 50%; border: none; background: #28a745; color: #f3f3f3;"><i class="fas fa-check-circle" style="position: relative; top: 0; left: 0;"></i></button>
 				</div>
 
 			</div>
@@ -151,25 +151,26 @@ if ($dados->IDPACIENTE == NULL) {
 	<h1 id="fbs">Copyright &copy 2018 - Fábrica de Software</h1>
 </footer>
 
-            <!-- MODAL DE ESCOLHA DE PACIENTE -->
-                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">SELECIONE UM ITEM</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                          </div>
-                          <div class="modal-footer">
-                          	<button type="button" class="btn btn-primary">SALVAR</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
+
+<!-- MODAL DE ESCOLHA DE PACIENTE -->
+<div class="modal fade" id="modalPaciente" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalCenterTitle" style="font-weight: 500;">Selecione um item</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: relative; top: -30px; right: -5px;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
+        <button type="button" class="btn btn-primary">SALVAR</button>
+    </div>
+  </div>
+</div>
                   <!-- F I M  M O D A L -->
 
 <!-- Importando o jQuery -->
