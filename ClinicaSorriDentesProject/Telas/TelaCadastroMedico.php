@@ -127,7 +127,7 @@ if (isset($_SESSION["login"])) {
         </div>
 
         <footer>
-            <h1>Copyright &copy 2018 - Fábrica de Software</h1>
+            <h1><strong>Copyright &copy 2018 - Fábrica de Software</strong></h1>
         </footer>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -148,7 +148,7 @@ if ($dados->IDPACIENTE == NULL) {
 </div>
 
 <footer>
-	<h1 id="fbs">Copyright &copy 2018 - Fábrica de Software</h1>
+	<h1><strong>Copyright &copy 2018 - Fábrica de Software</strong></h1>
 </footer>
 
 

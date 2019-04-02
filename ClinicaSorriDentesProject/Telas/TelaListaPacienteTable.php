@@ -86,6 +86,6 @@ $paciente->retornaTudo($paciente);
         </div>
 
         <footer>
-            <h1>Copyright &copy 2018 - Fábrica de Software</h1>
+            <h1><strong>Copyright &copy 2018 - Fábrica de Software</strong></h1>
         </footer>
 </html>

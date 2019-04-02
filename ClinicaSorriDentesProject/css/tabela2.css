@@ -22,11 +22,16 @@
 	max-width: 80%;
 	height: 90%;
 	overflow-y: auto;
-	overflow-x: hidden;
+	overflow-x: auto;
 	line-height: 0;
 }
 
-.conteudo::-webkit-scrollbar { width:10px; background: #0077b8;}
+.conteudo table thead{
+	color: #0077b8 !important;
+	text-transform: uppercase;
+}
+
+.conteudo::-webkit-scrollbar { width:3px; height: 3px; background: #0077b8;}
 .conteudo::-webkit-scrollbar-track { background: #4e4e4e; }
 .conteudo::-webkit-scrollbar-thumb { border-radius:20px; background: #0077b8;}
 .conteudo::-webkit-scrollbar-corner { visibility: hidden;} 

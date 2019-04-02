@@ -119,7 +119,7 @@ label[for="bt_menu"]{
 	text-align: left;
 	font-size: 30px !important;
 	cursor: pointer;
-	background-color: #00beaa;
+	color: #181818;
 	display: none;
 	position: absolute;
 }
@@ -156,6 +156,7 @@ footer {
 footer h1{
 	font-family: 'Montserrat', sans-serif !important;
 	font-size: 14px !important;
+	font-weight: 600;
 	color: #f3f3f3;
 	text-align: center;
 	margin-top: 20px;
@@ -163,6 +164,9 @@ footer h1{
 
 
 @media (max-width: 1000px){
+	table span{
+		display: none;
+	}
 
 	#right{
 		display: none;
@@ -194,7 +198,7 @@ footer h1{
 		z-index: 1;
 		width: 100%;
 		margin-left: -100%;
-		top: 50px;
+		top: 48px;
 	}
 
 	.menu ul li{

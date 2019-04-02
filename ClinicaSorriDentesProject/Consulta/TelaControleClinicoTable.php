@@ -75,57 +75,47 @@ $con = $listar->listarPorIDPacientePorDAta($idPaciente);
         </header>
 
         <div class="centro">
-            <div class="conteudo">
+            <div class="container conteudo">
 
-                <div class="row titulo-boot">
-                    <div class="form-group col-sm-3">
-                        Paciente
-                    </div>
+                <div class="table-responsive-md">
+                  <table class="table">
+                    <thead style="color: #f3f3f3;">
+                        <tr>
+                          <th scope="col">Paciente</th>
+                          <th scope="col">Valor</th>
+                          <th scope="col">Data</th>
+                          <th scope="col">Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody style="color: #f3f3f3;">
+                        <?php while ($dado = $con->fetch_array()) { ?>
+                            <tr>
+                                <th scope="row">
+                                <?php
+                                    $paciente->valorpk = $dado["ID_PACIENTE"];
 
-                    <div class="form-group col-sm-2">
-                        Valor
-                    </div>
+                                    $resultado = $paciente->pesquisarID($paciente);
+                                    $dados = mysqli_fetch_array($resultado);
 
-                    <div class="form-group col-sm-3">
-                        Data
-                    </div>
-
-                    <div class="form-group col-sm-4">
-                        Ação
-                    </div>
+                                    echo $nomePaciente = $dados["NOME"];
+                                ?>
+                                </th>
+                                <td><?php echo $dado["ORCAMENTO_FINAL"]; ?></td>
+                                <td><?php echo date("d/m/Y", strtotime($dado["DATA"])); ?></td>
+                                <td>
+                                    <a target="_blank" href="../Telas/TelaVerProcedimento.php?idPaciente=<?php echo $dado["ID_PACIENTE"]; ?>&data=<?php echo date("Y-m-d", strtotime($dado["DATA"])) ?>">Relatório</a><span> | </span>
+                                    <a href="../Telas/TelaAtualizarControleClinico.php?idPaciente=<?php echo $dado["ID_PACIENTE"]; ?>&data=<?php echo date("Y-m-d", strtotime($dado["DATA"])) ?>">Editar</a><span> | </span>
+                                    <a href="">Orçamento</a>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                  </table>
                 </div>
-
-                <?php while ($dado = $con->fetch_array()) { ?>
-                    <div class="row tupla">
-                        <div class="form-group col-sm-3" style="word-wrap: break-word;">
-                            <?php
-                            $paciente->valorpk = $dado["ID_PACIENTE"];
-
-                            $resultado = $paciente->pesquisarID($paciente);
-                            $dados = mysqli_fetch_array($resultado);
-
-                            echo $nomePaciente = $dados["NOME"];
-                            ?>
-                        </div>
-
-                        <div class="form-group col-sm-2">
-                            <?php echo $dado["ORCAMENTO_FINAL"]; ?>
-                        </div>
-
-                        <div class="form-group col-sm-3">
-                            <?php echo date("d/m/Y", strtotime($dado["DATA"])); ?>
-                        </div>
-
-                        <div class="form-group col-sm-4">
-                            <a target="_blank" href="../Telas/TelaVerProcedimento.php?idPaciente=<?php echo $dado["ID_PACIENTE"]; ?>&data=<?php echo date("Y-m-d", strtotime($dado["DATA"])) ?>">Ver Procedimento</a>
-                            <a href="../Telas/TelaAtualizarControleClinico.php?idPaciente=<?php echo $dado["ID_PACIENTE"]; ?>&data=<?php echo date("Y-m-d", strtotime($dado["DATA"])) ?>">| Editar</a>
-                        </div>
-                    </div>
-                <?php } ?>
             </div>
         </div>
 
         <footer>
-            <h1>Copyright &copy 2018 - Fábrica de Software</h1>
+            <h1><strong>Copyright &copy 2018 - Fábrica de Software</strong></h1>
         </footer>
 </html>
